@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все свои - Личный кабинет</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'SB Sans Text', 'Roboto', sans-serif; 
+            background-color: #f4f4f4; 
+            color: #000; 
+        }
+        h2 { 
+            font-family: 'SB Sans Display', 'Roboto', sans-serif; 
+        }
+        .header { 
+            background-color: #fff; 
+            padding: 10px; 
+            border-bottom: 1px solid #ddd; 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 1000; 
+        }
+        .search-bar { 
+            border-radius: 20px; 
+            background-color: #f0f0f0; 
+        }
+        .mic-btn { 
+            background-color: transparent; 
+            border: none; 
+            font-size: 24px; 
+            padding: 8px; 
+        }
+        .footer-menu { 
+            background-color: #fff; 
+            border-top: 1px solid #ddd; 
+            padding: 10px; 
+            border-radius: 20px 20px 0 0; 
+            position: fixed; 
+            bottom: 0; 
+            width: 100%; 
+        }
+        .menu-icons { 
+            display: flex; 
+            overflow-x: auto; 
+            justify-content: start; 
+            -webkit-overflow-scrolling: touch; 
+            scrollbar-width: none; /* Firefox */
+            
+        }
+        .menu-icons::-webkit-scrollbar { 
+            display: none; /* Chrome, Safari, Edge */
+        }
+        .menu-icon { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0 10px; 
+            text-decoration: none; 
+        }
+        .menu-icon-img { 
+            width: 60px; 
+            height: 60px; 
+            border-radius: 50%; 
+            background: linear-gradient(135deg, #08a652, #21BA72, #A0E720); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #fff; 
+            font-size: 12px; 
+            text-align: center; 
+        }
+        .menu-icon-label { 
+            color: #000; 
+            font-size: 12px; 
+            margin-top: 5px; 
+            font-family: 'SB Sans Text', 'Roboto', sans-serif; 
+        }
+        .arrow-btn { 
+            background-color: transparent; 
+            border: none; 
+            padding: 10px; 
+        }
+        .arrow-btn img { 
+            width: 24px; 
+            height: 24px; 
+        }
+        .photo-placeholder { 
+            width: 150px; 
+            height: 150px; 
+            border-radius: 50%; 
+            background-color: #ddd; 
+            margin: auto; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+        }
+        .content { 
+            margin-top: 80px; 
+            margin-bottom: 100px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="input-group mx-2">
+            <input type="text" class="form-control search-bar" placeholder="Поиск">
+            <button class="mic-btn"><i class="bi bi-mic"></i></button>
+        </div>
+    </div>
+    <div class="container content">
+        <h2 class="text-center" style="color: #08a652;">Личный кабинет</h2>
+        <div class="photo-placeholder mb-3">Фото</div>
+        <p><strong>Фамилия:</strong> Иванов</p>
+        <p><strong>Имя:</strong> Иван</p>
+        <p><strong>Отчество:</strong> Иванович</p>
+        <p><strong>Дата рождения:</strong> 01.01.1990</p>
+        <p><strong>Другие данные:</strong> ...</p>
+    </div>
+    <div class="footer-menu d-flex align-items-center justify-content-between">
+        <button class="arrow-btn" onclick="scrollMenu('left')">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAABoklEQVR4nO3dsUocURxG8cUimrxBQNi5kOp7sHQp7n2B7QOKfXwCywQicxu7vEps1kKS2jBWVmJjzrj3/GD6P+eDWYvF3WwkSZIkSZKkA/Lp55fjqdez0tu+9PZ3muu3j98/f6DvGsL2ZndS5nZdent4+ky9XdK3DRu/PD71z2a3O6JvHDR+e5h6vadvHDZ+WZ65XtB3Dhy/XS8fzPStBydXu3dTrz+ejd/bvIxE33pwYnxOjM+J8TkxPifG58T4nBifE+NzYnxOjM+J8TkxPifG58T4nBifE+NzYnxOjM+J8TkxPsf4IOODjA8yPsj4IOODlu9gvuS7mlvjv47S21fjg6a53fraAZW5/n5ugNNf9T1538HzFQTzQ/gN/Rl66uvo9TjCCjjCCjjCCjjCCjjCCsQReHEEXhyBF0fgxRF4cQReHIEXR+DFEXhxBF4cgRdH4MUReHEEXhyBF0fgxRF4cQReHIEXR+DFEXhb/3n32xhh6vWcvnP0Efb0jaOPsKfvG/xHfOoZfdtoP2N1Xnq9W54lvh/CkiRJkiRJ2vxn/wCMNiRgJJPmkQAAAABJRU5ErkJggg==" alt="back">
+        </button>
+        <div class="menu-icons">
+            <a href="cabinet.html" class="menu-icon">
+                <div class="menu-icon-img"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADtElEQVR4nO2ZSWxNURiAL6UoCzUkhpZlpUKEUgu2RNoghlZICVbWImYrQ2KlKbEhGjZqiIaNHXYskDa1aWthKDU1NIZi8clf/5XjuO/1nnNv34vkfclNbt65/3Cm//znf0FQoECBxAAjgaXAAeA60AH0AT/06dPfrgH7gWqRCfINUAacAF7izgvgODAzH45PBs4C30nOAHAGmJQr5zcB7yMceQWcAxqAhdrJ0fpMARYBW4HzwOsI+XdA3XA6PkpH3eYOUAMUOeqqBe5G6Dst7Wk7Pw64ZRnqBFakoHsV0GXpvik203J+VITzzcD4VAwEgzYmABcjOpF8JiKWzeFUvI62dcSy1ZTGhs2J81k6sSHwQaOIGW2avRT52b5k2H0LlCZdOp0uax4o11O3X58bQIXjnuj2Xkp6wpqH1EpH5z/wL5JOlDtGJ/Owm+HSAUkPQu7EFvwtKyOfiSuOuu4ZssfiChVZuU2No1FZMpn45Kir1pB9FisB1KzSTA+cYjFD4HEG9RriS+IIHTQEzrkYTLsDAnDBEN8bDIXm8yENQwq4LaGPHvq2GfJX4wjIxSNkoYdBCZmZaPHQV2XIt8cRMEPgZA+DFRoybeRQLPPQN9XQ8S6OgBn/i10NGmfBFYk6+rT4OC8AYwx/BgLHDowO8gxQ7NqBREsobfBYQuYmXpQTL7MALHbdxGYY3RnkGWC7axiVuk3IdQdDI4DlwEnNYXqAr/r06G/Stky+Hc6DrNoQ6B8qEmnutAN4Sny6dWSLYqQSUq0IqYpbZZOiU8i6LN9WAo/w5yEwJ4v+9c7JnApKxSykLUoQWK3Lw6RPyyJrgFlazRin72u0gGUfcl+iMl4dyHbju6OxnFfhmXqJCKmLGJmflhOH4pRCgBK5W6tMiNRP11rf1f9phW9OFxpVIKNlTt/gmaBVty/WdXOek/LfeuZb18bPwAJtk0rec6Ot0fdSb26g28BY4InxW5fzyPw7092Gvg61IbZC3nhd6tVAHX/z2HiXWaj0dd6wMdeaUdNG1iAS14Bsyih2J3U+BNiTwcapICkai6XMZyIbfFpi5YrosoKG0OpSMM6KhkK7E3Jf3piC7vqIcntrasVdayaaIqb5PrDZ5e6gKfIW4EGEvsbURj6D8Q0aGWykBHgZ2KXpyGyN+SX6Xq1tLfqtTW/iDevQiVKdDXvd+vBNR31iTpy3OjJDKmbWoRMXORyPAtNz7niGvGUJsE9yds1hPuj19Lu+t2nbXr2k5P9v1gIFgv+fX4zu26u/I77tAAAAAElFTkSuQmCC" alt="user-male-circle"></div>
+                <span class="menu-icon-label">Профиль</span>
+            </a>
+            <a href="news.html" class="menu-icon">
+                <div class="menu-icon-img"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABA0lEQVR4nO2VsQ3CMBBFDaJkDDo6FmER1gDELKxARU9Hj5ghBSCBHooI6Agg4jhxgvivPJ3Pfj7Z55wQ4i3ADDgRnzOwBLouhIYObxmECjTNsDKBoEJ+e24lcEcCJUACBgm0VYDbhD4QTlpjWkQg2zPJ53sLAJ2sUFUkBQXuF3aoogPTBjrwIFigTpCAQQIlQAKGEnPg5VfxzadugQJzIP+v++ZvaxX4Mgc+daBwPnoDBgmUAAn8gwCaA08kUQWyuObAJ5CAQQItELiYdT33gwJ7s24SQwJYmT3HWWxgYkefYgvax9pHoA9saA8nYOTb0lRiDuxybyImx/TmvQ8vhBAuBlchgkU73jLG2AAAAABJRU5ErkJggg==" alt="news"></div>
+                <span class="menu-icon-label">Новости</span>
+            </a>
+            <a href="education.html" class="menu-icon">
+                <div class="menu-icon-img"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADRUlEQVR4nO2ZS2wNURjHp1erRQhVsWjjLR4LkQgJKyQsW2InQiLpwsLGhgXtrXpHNISIiEUXHiEaSREaIl6RNEG8d5SFRCuIR5/4yZd+l5Mxd+bM3Jre1v0nk9xk/t93/v8z38w537mOk0MOOfQpgOnAXuAh8F6vB8AeYJqTrQCGqPBu0kPu7Rauk4XiL2CPhqwyAex0CbwCLAeK9ZLfV12c7U42AJgEdBrCatPw8oAdBk9iJsav+G9h1Yao6yLUhysmbhj8bfGq9RZ12xBUYcFfafBvxqPSX1CLISiwJIRj8F/Fo9JfUJshqMSCX2Lw2+JROcgNtBiCJoQsoZZ4VPoLumMIKrfgVxj8W/Go9BdUYwhqsuBfM/jV8aj0FzQF6DJEVVmuGbKQTXayAbrTNNEILAZG6LUEuOji7HKyBUA+cAl7NAZt5oCR+sUqiypqn25/vwGtwH3gLLAVWCoz62HiANDjI1zu7ReuK3YmsAGo13E+uuLqw4rPC9jXC9p1C70aKDRiZwN1wFPgq15P1Nwsg1cKJIHnFk+sK6yBBOHQqjvNYovcM4AzAU/KjR9RGpTfwcBa3fOf09n8iTc+AVuAAo+co4AjPsLfqrHNwApgYV8Z+O5xv1RrtilNqT0G5hl8+Qq99uC90YmZE1AFoQ3IC5lCTwB3vHRXwAeXuA6gEtjoMesv9N3J98kbjwEjZixwUJ4Y/i/+Jq8S62sDBUZwd8jYRcBLD/HP5AsVIk+iXwxo/Dig2chxDxgTMkciEwNDI3+D/+SoNXIkI8Qn/msDhYPJQGfYwTVHzgAZGCgygjvCDq45ZHHLGYhqYNhgMtAednDNkTNABgaGm8F6gNug+/kqPdspC3Hckgzo/qYCqzT3IeCk/seQ0Urst6tM4Z0OVm62lUEGgNHAOj0I+GwxTmfUpt784yII0ogfk9nU+KTbADAfOO86RwqCdH91oQ24WkE5z5yrpxGV+pib0zwlaV4Oa2+QwlHgVBqBX7Szk7Ol9cAyYIEcAEiZSjlHFm9hTkphDXDZsuRSkLI5rhOStivrj/+HT1h0ZDU2pxf9Bq3zRx7i74pJZyCA3q3IaUO8vLhFzkACvQuRvB9yppT4VwP9As657P62c18eAAAAAElFTkSuQmCC" alt="reading"></div>
+                <span class="menu-icon-label">Обучение</span>
+            </a>
+            <a href="documents.html" class="menu-icon">
+                <div class="menu-icon-img"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABI0lEQVR4nO2ZzQ7BQBCAl0PDE3MSDtw5uPEyPAXeogeRNPlkYyXVEF1m2i3z3dqmM/PtzzTpOmcYxluAITADTkCBDBdgCfRdA8Xv0WOjKhFGXpuNmkRYNndGQPZlvGYleFzzmUC8atG6EuXo0vGAHrCu3NuKSmgKuNu1roS2gLpEEwIeX+yTPbFyie+Bd1xSFPBf4Nq4BAXmMRIuNYHGc2IC8WACEcGABXAmHv/OvFWB8AXN+Zy8VYFSW+zmDGiBCfyTANaFWhQIz60LVTGBvxKgfhd6uea71IXypAQiu1B6M6AFJlDCBBIQKCR/r9fIl5XyFdIHHGNNCW7F+xx3DhJBp7THpAuHfK/YAYOvBYLEwI8GcBQ8Zn1GEXJMxIo3jB/nCsIx6kEYUvaZAAAAAElFTkSuQmCC" alt="document"></div>
+                <span class="menu-icon-label">Документы</span>
+            </a>
+            <a href="health.html" class="menu-icon">
+                <div class="menu-icon-img"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACnElEQVR4nO2Zu2tUQRSHZxffRYJopSIRbBRRAikEi4CFIYWIRToLBR+FIESihUYEg/ERxCA+CyFFGlHcwkKCSECCIPoHWCiihShCBB9RY9xPxswlv4z33o2S7L0D96t2zjmz93dm586cmTWmoKBgTgHOAWNArwkNoBGYYJJxYJEJCaCd6TSbkAB6vQR2mZAARrwEzphQABYC37wE7plQAFr5m1cmFIDumASqQIMJAWCIeDabvAPMAz6J6Mfyea/JA8ApYBQ4EeNrEcGvgePSvpiNYgHY5Oaz5Sew1PN3iuBBYIe0H5isAe5683qn56+I7wCwVtpvs1Nu/ojbAPzyErgs/hLwXnzrgDLwRWzL8zT6lufiX88UH2xCzv5U7K15mPtV4LuIWu1i9outIn0HxH4wD6N/21vr97gY+9JGdErfI2K/mvXcr7pf46iIGnRxdtmMaEkorR/NhcCz3pRI447r0yy2d0CTtD/bDU2+f5X4RhNObuMpz7S+a0niS94qkYYd/Y2uX9m9qBHn5fNQzHM+in+l2BvcfjKTZy9OSuK0O7um8RU46fW7JX4dhO4a54NtYm+bgfgfwBUz23irDmlLJXBD/IfF3iP2/lkXWSOBpoTRWhITe0hibop9WOwddU3ACXjpJTCSELdVYp4423w3NSNWZJHAdS+B2DsgW0J470vZng/E9qLu4p2wDi+B9pRYrZPWAF3SHqiv8ilRy2STsxdZjSmxD0Xwdm9331df5dOF9TvxF2rEXRLBx/zKtX6K48WV/nHZfRZXueYaYAvxVExAF75RSa50mVAA3hDidUsEcN8TPwYsMKEA9HkJDJuQAHZ7CfSYkPAuvixtJiRspSp/PU2k7dy5xV4xMnlM7MtaS0FBQYH5b34DkCZaLs3vvUQAAAAASUVORK5CYII=" alt="pulse"></div>
+                <span class="menu-icon-label">Здоровье</span>
+            </a>
+            <a href="services.html" class="menu-icon">
+                <div class="menu-icon-img"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaElEQVR4nO2Yy0rDUBCGExBRfCwvLbRetoI+gIJufQUfQ3FVKa5EH0YlvSRV995Q6ScHIqSHzIRD7CI43+7AP5mZ0KZfE0WGYRiGoQBsAY/MMgE6Qn4RuAQ+C/kv4BpYEWo6QOr1SKUeQQAZ5YyE/B4yR0LNWMindYePlWGmQs2JUnMq1EyVmtgWaOwCFZ/PQVQCsKsMcyjUjEK+Z0EAbTesd+EEWBfyC8AF8FbIfwB9YFnpMfR6uHO79gKGYTQcYBt48p4Qzo26igv1c//55Ru4qXChzOuR/ZULOXErYyzkzYU8/rFK0PQFKjwlicJd6ECoGc7ThVrAg3fhe2BNcaFz4LWQf8//pS0pPQZeD3du1V7AMIyGA+wAz94TwrnRpuJCVyUudKu4ULdEWSaSb83bhfaV34FjoWYs5M2FYltgFnOhYICN3H2K3AGrigudAS+FvHtH1KtwocS/Qa53+MSGYRiGETWHH/aiMIAr9jLuAAAAAElFTkSuQmCC" alt="squared-menu"></div>
+                <span class="menu-icon-label">Сервисы</span>
+            </a>
+        </div>
+        <button class="arrow-btn" onclick="scrollMenu('right')">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAABn0lEQVR4nO3csUocUQBG4SVFNHkDQdi5sNX/YHYW977A1CKYYO0TWEZQ7jR2voopYlKotSLaBBNNEffg7vlgYcvLf9iZLXZ2NpMkSZIkSZKWaOvbzudhakdlareltx+l1/3F6e4Gfa61MTyOf/fbq7ez+fm4SZ9t9Y3jhzLVm2cBjLA8Q2/XfwxghOUovR7+NYAR3t7idHfjYWQjgHI8fhymevJihKn17Yv6iT7ryooReDECL0bgxQi8GIEXI/BiBF6MwIsReDECL0bgxQi8GIEXI/BiBF6MwIsReDECL0bgxQi8GIEXI/BiBF6MwIsReDECb34+bv7Lb1F9SISOMNW9tzzD2ssrl6Oht+/0Gdf7ftDrJX3GlTX3EsTxJvwOvobOfRrn/3N8UByfE8fnxPE5cXxOHJ8Tx+fE8TlxfE4cnxPH58TxOXF8ThyfE8fnxPE5cXxOHJ8Tx+fE8TlxfE4cnxPH58TxOXF8Thyfs/DPu1ml16+ODyq9/XJ8UJnqT8cHld6+OD58Ex6mevD0Sbh6eO/DEZIkSZIkSZqtmHssHyRGajPelQAAAABJRU5ErkJggg==" alt="forward">
+        </button>
+    </div>
+    <script>
+        function scrollMenu(direction) {
+            const menu = document.querySelector('.menu-icons');
+            const scrollAmount = 100;
+            if (direction === 'left') {
+                menu.scrollLeft -= scrollAmount;
+            } else {
+                menu.scrollLeft += scrollAmount;
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</body>
+</html>
