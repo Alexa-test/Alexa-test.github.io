@@ -8,19 +8,55 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #000;
+        }
+        .divider span {
+            padding: 0 10px;
+            color: #666;
+            font-size: 14px;
+        }
+        .sber-id-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sber-id-btn img {
+            margin-right: 10px;
+            width: 24px; /* Adjust size as needed */
+            height: 24px; /* Adjust size as needed */
+        }
+    </style>
 </head>
 <body class="d-flex flex-column justify-content-center align-items-center vh-100">
     <div class="container text-center">
-        <h1 class="mb-4" style="color: #00A03E;">Все свои</h1>
+        <h1 class="mb-4" style="color: #21BA72;">Все свои</h1>
         <form id="loginForm" class="mx-auto" style="max-width: 300px;">
             <div class="mb-3">
-                <input type="text" class="form-control" id="userId" placeholder="ID (логин)" required>
+                <input type="text" class="form-control" id="userId" placeholder="ID (логин)" required="">
             </div>
             <div class="mb-3">
-                <input type="password" class="form-control" id="password" placeholder="Пароль" required>
+                <input type="password" class="form-control" id="password" placeholder="Пароль" required="">
             </div>
-            <button type="submit" class="btn btn-sber w-100 mb-3">Войти</button>
-            <button type="button" class="btn btn-outline-secondary w-100">Войти через Госуслуги</button>
+            <button type="submit" class="btn btn-sber w-100 mb-3" style="background: linear-gradient(135deg, #21BA72, #0087cd); border: none; border-radius: 20px;">Войти</button>
+            <div class="divider"><span>или</span></div>
+            <button type="button" class="btn btn-outline-secondary w-100 mb-3 sber-id-btn" style="border-radius: 20px; background: white;">
+                <img src="img/gos.png" alt="Gosuslugi Icon">
+                Войти через Госуслуги</button>
+            <button type="button" class="btn btn-sber w-100 sber-id-btn" style="background: linear-gradient(135deg, #21BA72, #42E3B4); border: none; border-radius: 20px;">
+                <img src="img/sber-id-icon.png" alt="Sber ID Icon">
+                Войти по Сбер ID
+            </button>
         </form>
     </div>
     <script>
