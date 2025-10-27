@@ -323,7 +323,7 @@ h2 {
 /* Большие экраны (от 1201px) */
 @media (min-width: 1201px) {
   .content {
-    max-width: 700px;
+    max-width: 930px;
     margin: 0 auto;
   }
 
@@ -755,7 +755,7 @@ h2 {
 /* Большие экраны (от 1201px) */
 @media (min-width: 1201px) {
     .content {
-        max-width: 900px;
+        max-width: 930px;
         margin: 0 auto;
     }
     
@@ -1596,7 +1596,7 @@ h2 {
 /* Большие экраны (от 1201px) */
 @media (min-width: 1201px) {
     .tabs {
-        max-width: 700px;
+        max-width: 900px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -1614,6 +1614,7 @@ h2 {
     gap: 16px;
     overflow-x: auto;
     padding-bottom: 8px;
+    justify-content: center
 }
 
 .stat-card {
@@ -2383,6 +2384,10 @@ h2 {
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 20px;
     }
+    .bonus-content {
+        display: flex;
+        align-items: center;
+    }
 }
 
 /* Очень маленькие экраны (до 360px) */
@@ -2814,3 +2819,144 @@ h2 {
         font-size: 16px;
     }
 }
+
+
+/* Общие стили */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+  background-color: #f8f9fa;
+  color: #000;
+  padding-top: 90px; /* Учитываем высоту хэдера с меню */
+  padding-bottom: 60px; /* Учитываем высоту футера с поиском */
+}
+
+h2 {
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 1.5rem;
+}
+
+/* Стили для хэдера (меню) */
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 16px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.menu-icons {
+  display: flex;
+  overflow-x: auto;
+  justify-content: flex-start;
+  gap: 12px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0 8px;
+}
+
+.menu-icons::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  min-width: 60px;
+}
+
+.menu-icon-img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #21ba72, #42e3b4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+  transition: all 0.2s ease;
+}
+
+.menu-icon.active .menu-icon-img {
+  background: linear-gradient(135deg, #0087cd, #21ba72);
+  box-shadow: 0 4px 8px rgba(0, 135, 205, 0.3);
+}
+
+.menu-icon-label {
+  color: #666;
+  font-size: 12px;
+  margin-top: 6px;
+  text-align: center;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.menu-icon.active .menu-icon-label {
+  color: #0087cd;
+  font-weight: 600;
+}
+
+.arrow-btn {
+  background-color: transparent;
+  border: none;
+  padding: 8px;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.arrow-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.arrow-btn i {
+  font-size: 20px;
+}
+
+/* Стили для футера (поиск) */
+.footer {
+  background-color: #fff;
+  padding: 12px 16px;
+  border-top: 1px solid #e0e0e0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.search-bar {
+  border-radius: 20px;
+  background-color: #f5f5f5;
+  border: none;
+  padding: 10px 16px;
+  font-size: 16px;
+}
+
+.search-bar:focus {
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(0, 135, 205, 0.2);
+}
+
+.mic-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  padding: 8px 12px;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.mic-btn:hover {
+  background-color: #f0f0f0;
+}
+
