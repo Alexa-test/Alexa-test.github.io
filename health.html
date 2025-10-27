@@ -5,152 +5,543 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Все свои - Здоровье</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body { 
-            font-family: 'SB Sans Text', 'Roboto', sans-serif; 
-            background-color: #f4f4f4; 
-            color: #000; 
-        }
-        h2 { 
-            font-family: 'SB Sans Display', 'Roboto', sans-serif; 
-        }
-        .header { 
-            background-color: #fff; 
-            padding: 10px; 
-            border-bottom: 1px solid #ddd; 
-            position: fixed; 
-            top: 0; 
-            width: 100%; 
-            z-index: 1000; 
-        }
-        .search-bar { 
-            border-radius: 20px; 
-            background-color: #f0f0f0; 
-        }
-        .mic-btn { 
-            background-color: transparent; 
-            border: none; 
-            font-size: 24px; 
-            padding: 8px; 
-        }
-        .footer-menu { 
-            background-color: #fff; 
-            border-top: 1px solid #ddd; 
-            padding: 10px; 
-            border-radius: 20px 20px 0 0; 
-            position: fixed; 
-            bottom: 0; 
-            width: 100%; 
-        }
-        .menu-icons { 
-            display: flex; 
-            overflow-x: auto; 
-            justify-content: start; 
-            -webkit-overflow-scrolling: touch; 
-            scrollbar-width: none; /* Firefox */
-            
-        }
-        .menu-icons::-webkit-scrollbar { 
-            display: none; /* Chrome, Safari, Edge */
-        }
-        .menu-icon { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            margin: 0 10px; 
-            text-decoration: none; 
-        }
-        .menu-icon-img { 
-            width: 60px; 
-            height: 60px; 
-            border-radius: 50%; 
-            background: linear-gradient(135deg, #08a652, #21BA72, #A0E720); 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: #fff; 
-            font-size: 12px; 
-            text-align: center; 
-        }
-        .menu-icon-label { 
-            color: #000; 
-            font-size: 12px; 
-            margin-top: 5px; 
-            font-family: 'SB Sans Text', 'Roboto', sans-serif; 
-        }
-        .arrow-btn { 
-            background-color: transparent; 
-            border: none; 
-            padding: 10px; 
-        }
-        .arrow-btn img { 
-            width: 24px; 
-            height: 24px; 
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="header fixed-top">
-        <div class="input-group mx-2">
-            <input type="text" class="form-control search-bar" placeholder="Поиск">
+    <div class="header">
+        <div class="input-group">
+            <input type="text" class="form-control search-bar" placeholder="Поиск врачей или услуг">
             <button class="mic-btn"><i class="bi bi-mic"></i></button>
         </div>
     </div>
-    <div class="container mt-5 pt-5 pb-5">
-        <h2 class="text-center" style="color: #08a652;">Здоровье</h2>
-        <ul class="list-group">
-            <li class="list-group-item">Реабилитация - Записаться</li>
-            <li class="list-group-item">Проверка здоровья - Записаться</li>
-            <li class="list-group-item">Записаться на прием</li>
-            <li class="list-group-item">Сдать анализы</li>
-            <!-- More -->
-        </ul>
+    
+    <div class="content">
+        <h2 class="text-center">Здоровье</h2>
+        
+        <div class="health-overview">
+            <div class="health-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="bi bi-heart-pulse"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value">120/80</div>
+                        <div class="stat-label">Давление</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="bi bi-activity"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value">72</div>
+                        <div class="stat-label">Пульс</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="bi bi-thermometer"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value">36.6</div>
+                        <div class="stat-label">Температура</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="services">Медицинские услуги</button>
+                <button class="tab-btn" data-tab="appointments">Мои записи</button>
+                <button class="tab-btn" data-tab="tracking">Отслеживание</button>
+            </div>
+            
+            <div class="tab-content active" id="services">
+                <div class="health-services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-heart-pulse"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4 class="service-title">Реабилитация</h4>
+                            <p class="service-description">Комплексная программа восстановления после лечения</p>
+                            <div class="service-meta">
+                                <span class="service-duration">от 2 недель</span>
+                                <span class="service-availability">Доступно</span>
+                            </div>
+                            <button class="btn-sber">Записаться</button>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-clipboard-check"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4 class="service-title">Проверка здоровья</h4>
+                            <p class="service-description">Комплексное обследование организма</p>
+                            <div class="service-meta">
+                                <span class="service-duration">1-2 дня</span>
+                                <span class="service-availability">Доступно</span>
+                            </div>
+                            <button class="btn-sber">Записаться</button>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4 class="service-title">Запись на прием</h4>
+                            <p class="service-description">Консультация с профильным специалистом</p>
+                            <div class="service-meta">
+                                <span class="service-duration">30-60 мин</span>
+                                <span class="service-availability">Доступно</span>
+                            </div>
+                            <button class="btn-sber">Записаться</button>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-droplet"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4 class="service-title">Сдать анализы</h4>
+                            <p class="service-description">Лабораторные исследования крови и других биоматериалов</p>
+                            <div class="service-meta">
+                                <span class="service-duration">15-30 мин</span>
+                                <span class="service-availability">Доступно</span>
+                            </div>
+                            <button class="btn-sber">Записаться</button>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-capsule"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4 class="service-title">Физиотерапия</h4>
+                            <p class="service-description">Восстановительные процедуры и лечение</p>
+                            <div class="service-meta">
+                                <span class="service-duration">30-45 мин</span>
+                                <span class="service-availability">Доступно</span>
+                            </div>
+                            <button class="btn-sber">Записаться</button>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-file-medical"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4 class="service-title">Диагностика</h4>
+                            <p class="service-description">УЗИ, МРТ, КТ и другие виды обследований</p>
+                            <div class="service-meta">
+                                <span class="service-duration">1-2 часа</span>
+                                <span class="service-availability">Доступно</span>
+                            </div>
+                            <button class="btn-sber">Записаться</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="appointments">
+                <div class="appointments-info">
+                    <h3>Ближайшие записи</h3>
+                    <p>Ваши предстоящие визиты к врачам</p>
+                </div>
+                
+                <div class="appointments-list">
+                    <div class="appointment-card">
+                        <div class="appointment-date">
+                            <div class="date-day">15</div>
+                            <div class="date-month">октября</div>
+                        </div>
+                        <div class="appointment-content">
+                            <h4 class="appointment-title">Терапевт</h4>
+                            <p class="appointment-description">Плановый осмотр</p>
+                            <div class="appointment-meta">
+                                <span class="appointment-time">10:30 - 11:00</span>
+                                <span class="appointment-location">Поликлиника №1</span>
+                            </div>
+                        </div>
+                        <div class="appointment-actions">
+                            <button class="btn-sber-outline">Перенести</button>
+                            <button class="btn-sber-outline">Отменить</button>
+                        </div>
+                    </div>
+                    
+                    <div class="appointment-card">
+                        <div class="appointment-date">
+                            <div class="date-day">18</div>
+                            <div class="date-month">октября</div>
+                        </div>
+                        <div class="appointment-content">
+                            <h4 class="appointment-title">Сдача анализов</h4>
+                            <p class="appointment-description">Общий анализ крови и мочи</p>
+                            <div class="appointment-meta">
+                                <span class="appointment-time">08:00 - 08:30</span>
+                                <span class="appointment-location">Лаборатория</span>
+                            </div>
+                        </div>
+                        <div class="appointment-actions">
+                            <button class="btn-sber-outline">Перенести</button>
+                            <button class="btn-sber-outline">Отменить</button>
+                        </div>
+                    </div>
+                    
+                    <div class="appointment-card">
+                        <div class="appointment-date">
+                            <div class="date-day">22</div>
+                            <div class="date-month">октября</div>
+                        </div>
+                        <div class="appointment-content">
+                            <h4 class="appointment-title">Физиотерапия</h4>
+                            <p class="appointment-description">Сеанс восстановительной терапии</p>
+                            <div class="appointment-meta">
+                                <span class="appointment-time">14:15 - 15:00</span>
+                                <span class="appointment-location">Реабилитационный центр</span>
+                            </div>
+                        </div>
+                        <div class="appointment-actions">
+                            <button class="btn-sber-outline">Перенести</button>
+                            <button class="btn-sber-outline">Отменить</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="history-section">
+                    <h4>История посещений</h4>
+                    <div class="history-list">
+                        <div class="history-item">
+                            <div class="history-date">05.10.2023</div>
+                            <div class="history-content">
+                                <h5>Консультация кардиолога</h5>
+                                <p>Плановый осмотр, ЭКГ в норме</p>
+                            </div>
+                        </div>
+                        <div class="history-item">
+                            <div class="history-date">28.09.2023</div>
+                            <div class="history-content">
+                                <h5>Стоматолог</h5>
+                                <p>Профилактический осмотр, профессиональная чистка</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tracking">
+                <div class="tracking-info">
+                    <h3>Отслеживание здоровья</h3>
+                    <p>Мониторинг ваших показателей и самочувствия</p>
+                </div>
+                
+                <div class="tracking-grid">
+                    <div class="tracking-card">
+                        <h4>Артериальное давление</h4>
+                        <div class="tracking-chart">
+                            <div class="chart-placeholder">График давления</div>
+                        </div>
+                        <div class="tracking-actions">
+                            <button class="btn-sber-outline">Добавить измерение</button>
+                        </div>
+                    </div>
+                    
+                    <div class="tracking-card">
+                        <h4>Пульс</h4>
+                        <div class="tracking-chart">
+                            <div class="chart-placeholder">График пульса</div>
+                        </div>
+                        <div class="tracking-actions">
+                            <button class="btn-sber-outline">Добавить измерение</button>
+                        </div>
+                    </div>
+                    
+                    <div class="tracking-card">
+                        <h4>Температура</h4>
+                        <div class="tracking-chart">
+                            <div class="chart-placeholder">График температуры</div>
+                        </div>
+                        <div class="tracking-actions">
+                            <button class="btn-sber-outline">Добавить измерение</button>
+                        </div>
+                    </div>
+                    
+                    <div class="tracking-card">
+                        <h4>Самочувствие</h4>
+                        <div class="wellness-tracker">
+                            <div class="wellness-options">
+                                <button class="wellness-btn">😊 Отлично</button>
+                                <button class="wellness-btn">🙂 Хорошо</button>
+                                <button class="wellness-btn">😐 Нормально</button>
+                                <button class="wellness-btn">😕 Плохо</button>
+                                <button class="wellness-btn">😫 Очень плохо</button>
+                            </div>
+                        </div>
+                        <div class="tracking-actions">
+                            <button class="btn-sber-outline">Добавить заметку</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="medication-section">
+                    <h4>Прием лекарств</h4>
+                    <div class="medication-list">
+                        <div class="medication-item">
+                            <div class="medication-info">
+                                <h5>Витамин D</h5>
+                                <p>1 капсула в день</p>
+                            </div>
+                            <div class="medication-status taken">
+                                <span>Принято сегодня</span>
+                            </div>
+                        </div>
+                        <div class="medication-item">
+                            <div class="medication-info">
+                                <h5>Магний B6</h5>
+                                <p>2 таблетки в день</p>
+                            </div>
+                            <div class="medication-status pending">
+                                <span>Ожидает приема</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Модальное окно для записи на прием -->
+        <div class="modal fade" id="appointmentModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Запись на прием</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="appointmentForm">
+                            <div class="form-group">
+                                <label for="serviceType">Тип услуги</label>
+                                <select class="form-control" id="serviceType">
+                                    <option value="rehabilitation">Реабилитация</option>
+                                    <option value="checkup">Проверка здоровья</option>
+                                    <option value="consultation">Консультация врача</option>
+                                    <option value="tests">Сдача анализов</option>
+                                    <option value="physiotherapy">Физиотерапия</option>
+                                    <option value="diagnostics">Диагностика</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentDate">Дата приема</label>
+                                <input type="date" class="form-control" id="appointmentDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentTime">Время приема</label>
+                                <input type="time" class="form-control" id="appointmentTime">
+                            </div>
+                            <div class="form-group">
+                                <label for="doctor">Врач (опционально)</label>
+                                <input type="text" class="form-control" id="doctor" placeholder="ФИО врача">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-sber-outline" data-bs-dismiss="modal">Отмена</button>
+                        <button type="button" class="btn-sber">Записаться</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    
     <div class="footer-menu d-flex align-items-center justify-content-between">
         <button class="arrow-btn" onclick="scrollMenu('left')">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAABoklEQVR4nO3dsUocURxG8cUimrxBQNi5kOp7sHQp7n2B7QOKfXwCywQicxu7vEps1kKS2jBWVmJjzrj3/GD6P+eDWYvF3WwkSZIkSZKkA/Lp55fjqdez0tu+9PZ3muu3j98/f6DvGsL2ZndS5nZdent4+ky9XdK3DRu/PD71z2a3O6JvHDR+e5h6vadvHDZ+WZ65XtB3Dhy/XS8fzPStBydXu3dTrz+ejd/bvIxE33pwYnxOjM+J8TkxPifG58T4nBifE+NzYnxOjM+J8TkxPifG58T4nBifE+NzYnxOjM+J8TkxPsf4IOODjA8yPsj4IOODlu9gvuS7mlvjv47S21fjg6a53fraAZW5/n5ugNNf9T1538HzFQTzQ/gN/Rl66uvo9TjCCjjCCjjCCjjCCjjCCsQReHEEXhyBF0fgxRF4cQReHIEXR+DFEXhxBF4cgRdH4MUReHEEXhyBF0fgxRF4cQReHIEXR+DFEXhb/3n32xhh6vWcvnP0Efb0jaOPsKfvG/xHfOoZfdtoP2N1Xnq9W54lvh/CkiRJkiRJ2vxn/wCMNiRgJJPmkQAAAABJRU5ErkJggg==" alt="back">
+            <i class="bi bi-chevron-left"></i>
         </button>
+        
         <div class="menu-icons">
             <a href="cabinet.html" class="menu-icon">
-                <div class="menu-icon-img"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADtElEQVR4nO2ZSWxNURiAL6UoCzUkhpZlpUKEUgu2RNoghlZICVbWImYrQ2KlKbEhGjZqiIaNHXYskDa1aWthKDU1NIZi8clf/5XjuO/1nnNv34vkfclNbt65/3Cm//znf0FQoECBxAAjgaXAAeA60AH0AT/06dPfrgH7gWqRCfINUAacAF7izgvgODAzH45PBs4C30nOAHAGmJQr5zcB7yMceQWcAxqAhdrJ0fpMARYBW4HzwOsI+XdA3XA6PkpH3eYOUAMUOeqqBe5G6Dst7Wk7Pw64ZRnqBFakoHsV0GXpvik203J+VITzzcD4VAwEgzYmABcjOpF8JiKWzeFUvI62dcSy1ZTGhs2J81k6sSHwQaOIGW2avRT52b5k2H0LlCZdOp0uax4o11O3X58bQIXjnuj2Xkp6wpqH1EpH5z/wL5JOlDtGJ/Owm+HSAUkPQu7EFvwtKyOfiSuOuu4ZssfiChVZuU2No1FZMpn45Kir1pB9FisB1KzSTA+cYjFD4HEG9RriS+IIHTQEzrkYTLsDAnDBEN8bDIXm8yENQwq4LaGPHvq2GfJX4wjIxSNkoYdBCZmZaPHQV2XIt8cRMEPgZA+DFRoybeRQLPPQN9XQ8S6OgBn/i10NGmfBFYk6+rT4OC8AYwx/BgLHDowO8gxQ7NqBREsobfBYQuYmXpQTL7MALHbdxGYY3RnkGWC7axiVuk3IdQdDI4DlwEnNYXqAr/r06G/Stky+Hc6DrNoQ6B8qEmnutAN4Sny6dWSLYqQSUq0IqYpbZZOiU8i6LN9WAo/w5yEwJ4v+9c7JnApKxSykLUoQWK3Lw6RPyyJrgFlazRin72u0gGUfcl+iMl4dyHbju6OxnFfhmXqJCKmLGJmflhOH4pRCgBK5W6tMiNRP11rf1f9phW9OFxpVIKNlTt/gmaBVty/WdXOek/LfeuZb18bPwAJtk0rec6Ot0fdSb26g28BY4InxW5fzyPw7092Gvg61IbZC3nhd6tVAHX/z2HiXWaj0dd6wMdeaUdNG1iAS14Bsyih2J3U+BNiTwcapICkai6XMZyIbfFpi5YrosoKG0OpSMM6KhkK7E3Jf3piC7vqIcntrasVdayaaIqb5PrDZ5e6gKfIW4EGEvsbURj6D8Q0aGWykBHgZ2KXpyGyN+SX6Xq1tLfqtTW/iDevQiVKdDXvd+vBNR31iTpy3OjJDKmbWoRMXORyPAtNz7niGvGUJsE9yds1hPuj19Lu+t2nbXr2k5P9v1gIFgv+fX4zu26u/I77tAAAAAElFTkSuQmCC" alt="user-male-circle"></div>
+                <div class="menu-icon-img"><i class="bi bi-person-fill"></i></div>
                 <span class="menu-icon-label">Профиль</span>
             </a>
             <a href="news.html" class="menu-icon">
-                <div class="menu-icon-img"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABA0lEQVR4nO2VsQ3CMBBFDaJkDDo6FmER1gDELKxARU9Hj5ghBSCBHooI6Agg4jhxgvivPJ3Pfj7Z55wQ4i3ADDgRnzOwBLouhIYObxmECjTNsDKBoEJ+e24lcEcCJUACBgm0VYDbhD4QTlpjWkQg2zPJ53sLAJ2sUFUkBQXuF3aoogPTBjrwIFigTpCAQQIlQAKGEnPg5VfxzadugQJzIP+v++ZvaxX4Mgc+daBwPnoDBgmUAAn8gwCaA08kUQWyuObAJ5CAQQItELiYdT33gwJ7s24SQwJYmT3HWWxgYkefYgvax9pHoA9saA8nYOTb0lRiDuxybyImx/TmvQ8vhBAuBlchgkU73jLG2AAAAABJRU5ErkJggg==" alt="news"></div>
+                <div class="menu-icon-img"><i class="bi bi-newspaper"></i></div>
                 <span class="menu-icon-label">Новости</span>
             </a>
             <a href="education.html" class="menu-icon">
-                <div class="menu-icon-img"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADRUlEQVR4nO2ZS2wNURjHp1erRQhVsWjjLR4LkQgJKyQsW2InQiLpwsLGhgXtrXpHNISIiEUXHiEaSREaIl6RNEG8d5SFRCuIR5/4yZd+l5Mxd+bM3Jre1v0nk9xk/t93/v8z38w537mOk0MOOfQpgOnAXuAh8F6vB8AeYJqTrQCGqPBu0kPu7Rauk4XiL2CPhqwyAex0CbwCLAeK9ZLfV12c7U42AJgEdBrCatPw8oAdBk9iJsav+G9h1Yao6yLUhysmbhj8bfGq9RZ12xBUYcFfafBvxqPSX1CLISiwJIRj8F/Fo9JfUJshqMSCX2Lw2+JROcgNtBiCJoQsoZZ4VPoLumMIKrfgVxj8W/Go9BdUYwhqsuBfM/jV8aj0FzQF6DJEVVmuGbKQTXayAbrTNNEILAZG6LUEuOji7HKyBUA+cAl7NAZt5oCR+sUqiypqn25/vwGtwH3gLLAVWCoz62HiANDjI1zu7ReuK3YmsAGo13E+uuLqw4rPC9jXC9p1C70aKDRiZwN1wFPgq15P1Nwsg1cKJIHnFk+sK6yBBOHQqjvNYovcM4AzAU/KjR9RGpTfwcBa3fOf09n8iTc+AVuAAo+co4AjPsLfqrHNwApgYV8Z+O5xv1RrtilNqT0G5hl8+Qq99uC90YmZE1AFoQ3IC5lCTwB3vHRXwAeXuA6gEtjoMesv9N3J98kbjwEjZixwUJ4Y/i/+Jq8S62sDBUZwd8jYRcBLD/HP5AsVIk+iXwxo/Dig2chxDxgTMkciEwNDI3+D/+SoNXIkI8Qn/msDhYPJQGfYwTVHzgAZGCgygjvCDq45ZHHLGYhqYNhgMtAednDNkTNABgaGm8F6gNug+/kqPdspC3Hckgzo/qYCqzT3IeCk/seQ0Urst6tM4Z0OVm62lUEGgNHAOj0I+GwxTmfUpt784yII0ogfk9nU+KTbADAfOO86RwqCdH91oQ24WkE5z5yrpxGV+pib0zwlaV4Oa2+QwlHgVBqBX7Szk7Ol9cAyYIEcAEiZSjlHFm9hTkphDXDZsuRSkLI5rhOStivrj/+HT1h0ZDU2pxf9Bq3zRx7i74pJZyCA3q3IaUO8vLhFzkACvQuRvB9yppT4VwP9As657P62c18eAAAAAElFTkSuQmCC" alt="reading"></div>
+                <div class="menu-icon-img"><i class="bi bi-book"></i></div>
                 <span class="menu-icon-label">Обучение</span>
             </a>
             <a href="documents.html" class="menu-icon">
-                <div class="menu-icon-img"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABI0lEQVR4nO2ZzQ7BQBCAl0PDE3MSDtw5uPEyPAXeogeRNPlkYyXVEF1m2i3z3dqmM/PtzzTpOmcYxluAITADTkCBDBdgCfRdA8Xv0WOjKhFGXpuNmkRYNndGQPZlvGYleFzzmUC8atG6EuXo0vGAHrCu3NuKSmgKuNu1roS2gLpEEwIeX+yTPbFyie+Bd1xSFPBf4Nq4BAXmMRIuNYHGc2IC8WACEcGABXAmHv/OvFWB8AXN+Zy8VYFSW+zmDGiBCfyTANaFWhQIz60LVTGBvxKgfhd6uea71IXypAQiu1B6M6AFJlDCBBIQKCR/r9fIl5XyFdIHHGNNCW7F+xx3DhJBp7THpAuHfK/YAYOvBYLEwI8GcBQ8Zn1GEXJMxIo3jB/nCsIx6kEYUvaZAAAAAElFTkSuQmCC" alt="document"></div>
+                <div class="menu-icon-img"><i class="bi bi-file-text"></i></div>
                 <span class="menu-icon-label">Документы</span>
             </a>
-            <a href="health.html" class="menu-icon">
-                <div class="menu-icon-img"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACnElEQVR4nO2Zu2tUQRSHZxffRYJopSIRbBRRAikEi4CFIYWIRToLBR+FIESihUYEg/ERxCA+CyFFGlHcwkKCSECCIPoHWCiihShCBB9RY9xPxswlv4z33o2S7L0D96t2zjmz93dm586cmTWmoKBgTgHOAWNArwkNoBGYYJJxYJEJCaCd6TSbkAB6vQR2mZAARrwEzphQABYC37wE7plQAFr5m1cmFIDumASqQIMJAWCIeDabvAPMAz6J6Mfyea/JA8ApYBQ4EeNrEcGvgePSvpiNYgHY5Oaz5Sew1PN3iuBBYIe0H5isAe5683qn56+I7wCwVtpvs1Nu/ojbAPzyErgs/hLwXnzrgDLwRWzL8zT6lufiX88UH2xCzv5U7K15mPtV4LuIWu1i9outIn0HxH4wD6N/21vr97gY+9JGdErfI2K/mvXcr7pf46iIGnRxdtmMaEkorR/NhcCz3pRI447r0yy2d0CTtD/bDU2+f5X4RhNObuMpz7S+a0niS94qkYYd/Y2uX9m9qBHn5fNQzHM+in+l2BvcfjKTZy9OSuK0O7um8RU46fW7JX4dhO4a54NtYm+bgfgfwBUz23irDmlLJXBD/IfF3iP2/lkXWSOBpoTRWhITe0hibop9WOwddU3ACXjpJTCSELdVYp4423w3NSNWZJHAdS+B2DsgW0J470vZng/E9qLu4p2wDi+B9pRYrZPWAF3SHqiv8ilRy2STsxdZjSmxD0Xwdm9331df5dOF9TvxF2rEXRLBx/zKtX6K48WV/nHZfRZXueYaYAvxVExAF75RSa50mVAA3hDidUsEcN8TPwYsMKEA9HkJDJuQAHZ7CfSYkPAuvixtJiRspSp/PU2k7dy5xV4xMnlM7MtaS0FBQYH5b34DkCZaLs3vvUQAAAAASUVORK5CYII=" alt="pulse"></div>
+            <a href="health.html" class="menu-icon active">
+                <div class="menu-icon-img"><i class="bi bi-heart-pulse"></i></div>
                 <span class="menu-icon-label">Здоровье</span>
             </a>
             <a href="services.html" class="menu-icon">
-                <div class="menu-icon-img"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaElEQVR4nO2Yy0rDUBCGExBRfCwvLbRetoI+gIJufQUfQ3FVKa5EH0YlvSRV995Q6ScHIqSHzIRD7CI43+7AP5mZ0KZfE0WGYRiGoQBsAY/MMgE6Qn4RuAQ+C/kv4BpYEWo6QOr1SKUeQQAZ5YyE/B4yR0LNWMindYePlWGmQs2JUnMq1EyVmtgWaOwCFZ/PQVQCsKsMcyjUjEK+Z0EAbTesd+EEWBfyC8AF8FbIfwB9YFnpMfR6uHO79gKGYTQcYBt48p4Qzo26igv1c//55Ru4qXChzOuR/ZULOXErYyzkzYU8/rFK0PQFKjwlicJd6ECoGc7ThVrAg3fhe2BNcaFz4LWQf8//pS0pPQZeD3du1V7AMIyGA+wAz94TwrnRpuJCVyUudKu4ULdEWSaSb83bhfaV34FjoWYs5M2FYltgFnOhYICN3H2K3AGrigudAS+FvHtH1KtwocS/Qa53+MSGYRiGETWHH/aiMIAr9jLuAAAAAElFTkSuQmCC" alt="squared-menu"></div>
+                <div class="menu-icon-img"><i class="bi bi-grid-3x3-gap"></i></div>
                 <span class="menu-icon-label">Сервисы</span>
             </a>
         </div>
+        
         <button class="arrow-btn" onclick="scrollMenu('right')">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAABn0lEQVR4nO3csUocUQBG4SVFNHkDQdi5sNX/YHYW977A1CKYYO0TWEZQ7jR2voopYlKotSLaBBNNEffg7vlgYcvLf9iZLXZ2NpMkSZIkSZKWaOvbzudhakdlareltx+l1/3F6e4Gfa61MTyOf/fbq7ez+fm4SZ9t9Y3jhzLVm2cBjLA8Q2/XfwxghOUovR7+NYAR3t7idHfjYWQjgHI8fhymevJihKn17Yv6iT7ryooReDECL0bgxQi8GIEXI/BiBF6MwIsReDECL0bgxQi8GIEXI/BiBF6MwIsReDECL0bgxQi8GIEXI/BiBF6MwIsReDECb34+bv7Lb1F9SISOMNW9tzzD2ssrl6Oht+/0Gdf7ftDrJX3GlTX3EsTxJvwOvobOfRrn/3N8UByfE8fnxPE5cXxOHJ8Tx+fE8TlxfE4cnxPH58TxOXF8ThyfE8fnxPE5cXxOHJ8Tx+fE8TlxfE4cnxPH58TxOXF8Thyfs/DPu1ml16+ODyq9/XJ8UJnqT8cHld6+OD58Ex6mevD0Sbh6eO/DEZIkSZIkSZqtmHssHyRGajPelQAAAABJRU5ErkJggg==" alt="forward">
+            <i class="bi bi-chevron-right"></i>
         </button>
     </div>
+    
     <script>
         function scrollMenu(direction) {
             const menu = document.querySelector('.menu-icons');
-            const scrollAmount = 100;
+            const scrollAmount = 150;
+            
             if (direction === 'left') {
                 menu.scrollLeft -= scrollAmount;
             } else {
                 menu.scrollLeft += scrollAmount;
             }
         }
+        
+        // Переключение вкладок
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Убираем активный класс у всех кнопок и контента
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                document.querySelectorAll('.tab-content').forEach(c => {
+                    c.classList.remove('active');
+                });
+                
+                // Добавляем активный класс текущей кнопке и соответствующему контенту
+                this.classList.add('active');
+                const tabId = this.getAttribute('data-tab');
+                const targetTab = document.getElementById(tabId);
+                
+                if (targetTab) {
+                    targetTab.classList.add('active');
+                }
+            });
+        });
+        
+        // Обработка кнопок записи на услуги
+        document.querySelectorAll('#services .btn-sber').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = this.closest('.service-card');
+                const title = card.querySelector('.service-title').textContent;
+                
+                // Заполняем форму в модальном окне
+                const modal = new bootstrap.Modal(document.getElementById('appointmentModal'));
+                const serviceType = document.getElementById('serviceType');
+                
+                // Устанавливаем соответствующую услугу в выпадающем списке
+                for (let i = 0; i < serviceType.options.length; i++) {
+                    if (serviceType.options[i].text.toLowerCase().includes(title.toLowerCase())) {
+                        serviceType.selectedIndex = i;
+                        break;
+                    }
+                }
+                
+                modal.show();
+            });
+        });
+        
+        // Обработка кнопок самочувствия
+        document.querySelectorAll('.wellness-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.wellness-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                const mood = this.textContent;
+                alert(`Ваше самочувствие: ${mood} сохранено`);
+            });
+        });
+        
+        // Обработка кнопок приема лекарств
+        document.querySelectorAll('.medication-status').forEach(status => {
+            status.addEventListener('click', function() {
+                const medication = this.closest('.medication-item');
+                const name = medication.querySelector('h5').textContent;
+                
+                if (this.classList.contains('taken')) {
+                    this.classList.remove('taken');
+                    this.classList.add('pending');
+                    this.innerHTML = '<span>Ожидает приема</span>';
+                } else {
+                    this.classList.remove('pending');
+                    this.classList.add('taken');
+                    this.innerHTML = '<span>Принято сегодня</span>';
+                }
+            });
+        });
+        
+        // Обработка кнопок в разделе записей
+        document.querySelectorAll('.appointment-actions .btn-sber-outline').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const appointment = this.closest('.appointment-card');
+                const title = appointment.querySelector('.appointment-title').textContent;
+                const date = appointment.querySelector('.date-day').textContent + ' ' + 
+                            appointment.querySelector('.date-month').textContent;
+                
+                if (this.textContent.includes('Перенести')) {
+                    alert(`Запись "${title}" на ${date} будет перенесена`);
+                } else {
+                    if (confirm(`Вы уверены, что хотите отменить запись "${title}" на ${date}?`)) {
+                        appointment.style.opacity = '0.5';
+                        setTimeout(() => {
+                            appointment.remove();
+                        }, 300);
+                    }
+                }
+            });
+        });
+        
+        // Добавляем активное состояние для меню
+        document.querySelectorAll('.menu-icon').forEach(icon => {
+            icon.addEventListener('click', function() {
+                document.querySelectorAll('.menu-icon').forEach(i => {
+                    i.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Обработка поиска
+        document.querySelector('.search-bar').addEventListener('focus', function() {
+            this.parentElement.classList.add('focused');
+        });
+        
+        document.querySelector('.search-bar').addEventListener('blur', function() {
+            this.parentElement.classList.remove('focused');
+        });
+        
+        // Обработка формы записи в модальном окне
+        document.querySelector('#appointmentModal .btn-sber').addEventListener('click', function() {
+            const serviceType = document.getElementById('serviceType').value;
+            const date = document.getElementById('appointmentDate').value;
+            const time = document.getElementById('appointmentTime').value;
+            
+            if (!date || !time) {
+                alert('Пожалуйста, заполните дату и время приема');
+                return;
+            }
+            
+            alert(`Вы записаны на ${serviceType} ${date} в ${time}`);
+            const modal = bootstrap.Modal.getInstance(document.getElementById('appointmentModal'));
+            modal.hide();
+        });
     </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </body>
