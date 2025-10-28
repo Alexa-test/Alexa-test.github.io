@@ -101,24 +101,109 @@ function setupSearch() {
 }
 
 // Обработка клика на микрофон
+// Обработка клика на микрофон
 function setupMic() {
     const micBtn = document.querySelector('.mic-btn');
     if (micBtn) {
         micBtn.style.position = 'relative';
         micBtn.style.backgroundColor = 'transparent';
         micBtn.style.overflow = 'visible';
+        micBtn.style.zIndex = '30'; // Кнопка выше всего
 
         const micIcon = micBtn.querySelector('i');
         if (micIcon) {
             micIcon.style.position = 'relative';
-            micIcon.style.zIndex = '10'; // Иконка поверх всех элементов
+            micIcon.style.zIndex = '25'; // Иконка выше анимации
         }
 
-        // Добавляем стили для анимации, если еще не добавлены
-        if (!document.getElementById('pulse-style')) {
+        // Добавляем ТОЧНЫЕ стили из вашего CSS (если еще не добавлены)
+        if (!document.getElementById('exact-smoke-style')) {
             const style = document.createElement('style');
-            style.id = 'pulse-style';
+            style.id = 'exact-smoke-style';
             style.innerHTML = `
+                .exact-circle {
+                    position: absolute !important;
+                    width: 250px !important;
+                    height: 250px !important;
+                    border-radius: 50% !important;
+                    transform-origin: center !important;
+                    filter: blur(4px) !important;
+                    opacity: 0.65 !important;
+                    background: radial-gradient(circle, 
+                        var(--color1) var(--stop1), 
+                        var(--color2) var(--stop2)) !important;
+                    top: 50% !important;
+                    left: 50% !important;
+                }
+
+                .exact-circle-1 {
+                    --color1: rgba(0, 255, 163, 0.7);
+                    --color2: rgba(0, 163, 137, 0.4);
+                    --stop1: 10%;
+                    --stop2: 90%;
+                    transform: translate(-50%, -50%) translate(15px, -10px) !important;
+                    animation: smoke 18s infinite alternate ease-in-out !important;
+                }
+
+                .exact-circle-2 {
+                    --color1: rgba(0, 209, 178, 0.6);
+                    --color2: rgba(0, 163, 137, 0.3);
+                    --stop1: 15%;
+                    --stop2: 85%;
+                    transform: translate(-50%, -50%) translate(-20px, 15px) !important;
+                    animation: smoke 22s infinite alternate ease-in-out !important;
+                }
+
+                .exact-circle-3 {
+                    --color1: rgba(0, 255, 163, 0.5);
+                    --color2: rgba(0, 209, 178, 0.2);
+                    --stop1: 20%;
+                    --stop2: 80%;
+                    transform: translate(-50%, -50%) translate(25px, 25px) !important;
+                    animation: smoke 20s infinite alternate ease-in-out !important;
+                }
+
+                .exact-circle-4 {
+                    --color1: rgba(0, 209, 178, 0.4);
+                    --color2: rgba(0, 163, 137, 0.15);
+                    --stop1: 25%;
+                    --stop2: 75%;
+                    transform: translate(-50%, -50%) translate(-15px, -25px) !important;
+                    animation: smoke 24s infinite alternate ease-in-out !important;
+                }
+
+                .exact-circle-5 {
+                    --color1: rgba(0, 255, 163, 0.3);
+                    --color2: rgba(0, 209, 178, 0.1);
+                    --stop1: 30%;
+                    --stop2: 70%;
+                    transform: translate(-50%, -50%) translate(30px, -5px) !important;
+                    animation: smoke 26s infinite alternate ease-in-out !important;
+                }
+
+                .exact-glow-effect {
+                    position: absolute !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                    border-radius: 50% !important;
+                    background: radial-gradient(circle at center, 
+                        rgba(0, 255, 163, 0.2) 0%, 
+                        rgba(0, 209, 178, 0) 85%) !important;
+                    z-index: -1 !important;
+                }
+
+                .exact-pulse {
+                    position: absolute !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                    border-radius: 50% !important;
+                    background: radial-gradient(circle, 
+                        rgba(0, 255, 163, 0.15) 0%, 
+                        rgba(0, 209, 178, 0) 60%) !important;
+                    animation: pulse 8s infinite !important;
+                    z-index: -1 !important;
+                }
+
                 @keyframes smoke {
                     0% { 
                         transform: translate(-50%, -50%) translate(20px, -10px) scale(0.95);
@@ -161,100 +246,72 @@ function setupMic() {
         }
 
         micBtn.addEventListener('click', function(event) {
-            event.stopPropagation(); // Предотвращаем всплытие события клика
+            event.stopPropagation();
 
             // Проигрывание аудио
             const audio = new Audio('Привет Я твой ассист.m4a');
             audio.play();
 
-            // Создание контейнера для анимации
+            // Создание контейнера (250px, но scale(0.32) для ~80px)
             const container = document.createElement('div');
-            container.className = 'assistant-container';
+            container.className = 'exact-assistant-container';
             container.style.position = 'absolute';
-            container.style.width = '200px'; // Уменьшенный размер для микрофона
-            container.style.height = '200px';
+            container.style.width = '250px';
+            container.style.height = '250px';
             container.style.top = '50%';
             container.style.left = '50%';
             container.style.transform = 'translate(-50%, -50%) scale(0)';
             container.style.transition = 'transform 0.4s ease-out, opacity 0.4s ease-out';
             container.style.opacity = '1';
-            container.style.zIndex = '0';
+            container.style.zIndex = '5';
 
-            // Создание центральной точки
+            // Центральная точка (позади микрофона)
             const centerPoint = document.createElement('div');
             centerPoint.className = 'center-point';
-            centerPoint.style.width = '15px';
-            centerPoint.style.height = '15px';
-            centerPoint.style.background = "None";
+            centerPoint.style.position = 'absolute';
+            centerPoint.style.width = '30px';
+            centerPoint.style.height = '30px';
+            centerPoint.style.background = '#00D1B2';
             centerPoint.style.borderRadius = '50%';
-            centerPoint.style.boxShadow = 'None';
+            centerPoint.style.zIndex = '5'; // Позади иконки (25)
+            centerPoint.style.top = '50%';
+            centerPoint.style.left = '50%';
+            centerPoint.style.transform = 'translate(-50%, -50%)';
+            centerPoint.style.boxShadow = '0 0 25px rgba(0, 210, 178, 0.7)';
             container.appendChild(centerPoint);
 
-            // Создание эффекта свечения
-            const glowEffect = document.createElement('div');
-            glowEffect.className = 'glow-effect';
-            glowEffect.style.width = '100%';
-            glowEffect.style.height = '100%';
-            glowEffect.style.borderRadius = '50%';
-            glowEffect.style.background = 'radial-gradient(circle at center, rgba(0, 255, 163, 0.2) 0%, rgba(0, 209, 178, 0) 85%)';
-            glowEffect.style.zIndex = '-1';
-            container.appendChild(glowEffect);
+            // Glow effect
+            const glow = document.createElement('div');
+            glow.className = 'exact-glow-effect';
+            container.appendChild(glow);
 
-            // Создание пульсации
+            // Pulse
             const pulse = document.createElement('div');
-            pulse.className = 'pulse';
-            pulse.style.width = '100%';
-            pulse.style.height = '100%';
-            pulse.style.borderRadius = '50%';
-            pulse.style.background = 'radial-gradient(circle, rgba(0, 255, 163, 0.15) 0%, rgba(0, 209, 178, 0) 60%)';
-            pulse.style.animation = 'pulse 8s infinite';
-            pulse.style.zIndex = '-1';
+            pulse.className = 'exact-pulse';
             container.appendChild(pulse);
 
-            // Создание пяти кругов с анимацией smoke
-            const circles = [
-                { class: 'circle-1', translate: 'translate(15px, -10px)', color1: 'rgba(0, 255, 163, 0.7)', color2: 'rgba(0, 163, 137, 0.4)', stop1: '10%', stop2: '90%', animation: 'smoke 18s infinite alternate ease-in-out' },
-                { class: 'circle-2', translate: 'translate(-20px, 15px)', color1: 'rgba(0, 209, 178, 0.6)', color2: 'rgba(0, 163, 137, 0.3)', stop1: '15%', stop2: '85%', animation: 'smoke 22s infinite alternate ease-in-out' },
-                { class: 'circle-3', translate: 'translate(25px, 25px)', color1: 'rgba(0, 255, 163, 0.5)', color2: 'rgba(0, 209, 178, 0.2)', stop1: '20%', stop2: '80%', animation: 'smoke 20s infinite alternate ease-in-out' },
-                { class: 'circle-4', translate: 'translate(-15px, -25px)', color1: 'rgba(0, 209, 178, 0.4)', color2: 'rgba(0, 163, 137, 0.15)', stop1: '25%', stop2: '75%', animation: 'smoke 24s infinite alternate ease-in-out' },
-                { class: 'circle-5', translate: 'translate(30px, -5px)', color1: 'rgba(0, 255, 163, 0.3)', color2: 'rgba(0, 209, 178, 0.1)', stop1: '30%', stop2: '70%', animation: 'smoke 26s infinite alternate ease-in-out' }
-            ];
-
-            circles.forEach(circleConfig => {
+            // ТОЧНЫЕ 5 кругов с КЛАССАМИ CSS + разная прозрачность
+            ['1', '2', '3', '4', '5'].forEach(i => {
                 const circle = document.createElement('div');
-                circle.className = `circle ${circleConfig.class}`;
-                circle.style.width = '100px'; // Уменьшенный размер кругов
-                circle.style.height = '100px';
-                circle.style.borderRadius = '50%';
-                circle.style.transformOrigin = 'center';
-                circle.style.filter = 'blur(4px)';
-                circle.style.opacity = '0.65';
-                circle.style.background = `radial-gradient(circle, ${circleConfig.color1} ${circleConfig.stop1}, ${circleConfig.color2} ${circleConfig.stop2})`;
-                circle.style.top = '50%';
-                circle.style.left = '50%';
-                circle.style.transform = `translate(-50%, -50%) ${circleConfig.translate}`;
-                circle.style.animation = circleConfig.animation;
+                circle.className = `exact-circle exact-circle-${i}`;
+                circle.style.opacity = (0.8 - (i - 1) * 0.1).toFixed(2); // 0.8, 0.7, 0.6, 0.5, 0.4
                 container.appendChild(circle);
             });
 
             micBtn.appendChild(container);
 
-            // Анимация появления
+            // Появление
             setTimeout(() => {
-                container.style.transform = 'translate(-50%, -50%) scale(1)';
+                container.style.transform = 'translate(-50%, -50%) scale(0.32)'; // Точный масштаб
             }, 10);
 
-            // Функция для удаления контейнера с fade out
+            // Удаление
             const removeCircle = () => {
                 container.style.opacity = '0';
-                container.style.transform = 'translate(-50%, -50%) scale(1.2)';
-                setTimeout(() => {
-                    container.remove();
-                }, 400);
+                container.style.transform = 'translate(-50%, -50%) scale(0.38)'; // Немного больше
+                setTimeout(() => container.remove(), 600);
                 document.removeEventListener('click', removeCircle);
             };
-
-            // Добавляем слушатель на клик по документу для удаления
             document.addEventListener('click', removeCircle);
         });
     }
