@@ -1425,7 +1425,7 @@ h2 {
 @media (min-width: 577px) and (max-width: 768px) {
     .documents-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1 1fr 1fr;
         gap: 16px;
     }
 }
