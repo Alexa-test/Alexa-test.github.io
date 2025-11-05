@@ -126,16 +126,17 @@ body {
     opacity: 0.88;
 }
 
-/* Список выплат */
-.payouts-list {
+/* === СПИСОК ВЫПЛАТ === */
+.payouts-list,
+.checklist-view {
     display: none;
-    margin-top: 2rem;
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.5s ease;
 }
 
-.payouts-list.show {
+.payouts-list.show,
+.checklist-view.show {
     display: block;
     opacity: 1;
     transform: translateY(0);
@@ -149,6 +150,7 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     border-left: 5px solid var(--gold);
     transition: transform 0.2s ease;
+    cursor: pointer;
 }
 
 .payout-card:hover {
@@ -173,41 +175,21 @@ body {
     margin-top: 1.5rem;
 }
 
-/* Анимации */
-@keyframes glowPulse {
-    0%, 100% { filter: drop-shadow(0 10px 30px rgba(0,0,0,0.1)); transform: scale(1); }
-    50% { filter: drop-shadow(0 15px 40px rgba(255, 215, 0, 0.3)); transform: scale(1.04); }
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6%); }
-}
-
-/* Адаптивность */
-@media (max-width: 576px) {
-    .rub-icon { width: 68vmin; height: 68vmin; }
-    .rub-symbol { font-size: 46vmin; }
-    .coin { width: 8.5vmin; height: 8.5vmin; }
-    .label-top { font-size: 3.8vmin; top: 8%; }
-    .subtitle { font-size: 0.92rem; }
-    .payout-title { font-size: 1.1rem; }
-    .payout-amount { font-size: 1.3rem; }
-}
-
-/* Чекбоксы */
+/* === ЧЕКЛИСТ === */
 .form-check-input {
-    width: 1.4em;
-    height: 1.4em;
-    margin-top: 0.2em;
+    width: 1.5em;
+    height: 1.5em;
+    margin-top: 0.15em;
     cursor: pointer;
     border: 2px solid #ccc;
     transition: all 0.2s ease;
+    border-radius: 0.3em;
 }
 
 .form-check-input:checked {
-    background-color: #28a745;
-    border-color: #28a745;
+    background-color: var(--success);
+    border-color: var(--success);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
 }
 
 .form-check-input:focus {
@@ -217,25 +199,68 @@ body {
 .form-check-label {
     cursor: pointer;
     user-select: none;
-    margin-left: 0.5rem;
+    margin-left: 0.6rem;
     font-size: 1.05rem;
     color: #1a1a1a;
+    line-height: 1.5;
+}
+
+.list-group-item {
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 0.75rem 0;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
 }
 
 .list-group-item:hover .form-check-label {
-    color: #0066cc;
+    color: var(--accent);
 }
 
-/* Анимация появления */
-.checklist-view {
-    display: none;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease;
+/* === КНОПКИ МФЦ === */
+.btn-success {
+    background-color: var(--success);
+    border-color: var(--success);
+    color: white;
 }
 
-.checklist-view.show {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--accent);
+    color: white;
+}
+
+/* === АНИМАЦИИ === */
+@keyframes glowPulse {
+    0%, 100% { 
+        filter: drop-shadow(0 10px 30px rgba(0,0,0,0.1)); 
+        transform: scale(1); 
+    }
+    50% { 
+        filter: drop-shadow(0 15px 40px rgba(255, 215, 0, 0.3)); 
+        transform: scale(1.04); 
+    }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6%); }
+}
+
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 576px) {
+    .rub-icon { width: 68vmin; height: 68vmin; }
+    .rub-symbol { font-size: 46vmin; }
+    .coin { width: 8.5vmin; height: 8.5vmin; }
+    .label-top { font-size: 3.8vmin; top: 8%; }
+    .subtitle { font-size: 0.92rem; }
+    .payout-title { font-size: 1.1rem; }
+    .payout-amount { font-size: 1.3rem; }
+    .form-check-label { font-size: 0.95rem; }
 }

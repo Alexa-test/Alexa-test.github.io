@@ -3,31 +3,39 @@ document.addEventListener('DOMContentLoaded', function () {
     const payoutsListContainer = document.getElementById('payoutsList');
     const rubIcon = document.getElementById('rubIcon');
 
-    // === ДАННЫЕ ВЫПЛАТ + ЧЕКЛИСТ ===
+    // === ДАННЫЕ ВЫПЛАТ + УПРОЩЁННЫЙ ЧЕКЛИСТ ===
     const payouts = [
         {
             title: "Единовременная выплата участникам СВО",
             amount: "30 000 ₽",
             desc: "Для военнослужащих, участвовавших в специальной военной операции.",
             checklist: [
-                "Получить выписку из приказа об увольнении",
-                "Иметь регистрацию в Ленинградской области",
-                "Прийти с этими документами в филиал Соцзащиты"
+                "Заявление (можно скачать на сайте или взять в МФЦ/Соцзащите)",
+                "Паспорт (или военный билет, временное удостоверение)",
+                "Реквизиты карты «Мир» (распечатка из банка или приложение)",
+                "Справка, что участвовал в СВО (выдаёт воинская часть)",
+                "Выписка из приказа об увольнении (если уволен)",
+                "Подтверждение, что живёшь в Ленинградской области"
             ],
             link: "https://cszn.info/contact/structure",
-            linkText: "Филиалы ЦСЗН"
+            linkText: "Филиалы Соцзащиты",
+            mfcLink: "https://mfc47.ru/declarant/info.php#532101",
+            mfcText: "Подать в МФЦ"
         },
         {
             title: "Сертификат на зубопротезирование",
             amount: "60 500 ₽",
-            desc: "При получении ранения в челюстно-лицевую область до 500 000 ₽",
+            desc: "При ранении в челюсть — до 500 000 ₽",
             checklist: [
-                "Получить справку о ранении",
-                "Иметь регистрацию в Лен. области",
-                "Обратиться в филиал ЦСЗН"
+                "Заявление",
+                "Паспорт",
+                "Справка о ранении",
+                "Подтверждение, что живёшь в Лен. области"
             ],
             link: "https://cszn.info/contact/structure",
-            linkText: "Филиалы ЦСЗН"
+            linkText: "Филиалы Соцзащиты",
+            mfcLink: "https://mfc47.ru/declarant/info.php#532101",
+            mfcText: "Подать в МФЦ"
         }
     ];
 
@@ -63,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
         payoutsListContainer.innerHTML = html;
     }
 
-    // === ПОКАЗАТЬ ЧЕКЛИСТ С ЧЕКБОКСАМИ ===
+    // === ЧЕКЛИСТ С ЧЕКБОКСАМИ + МФЦ ===
     window.showChecklist = function (index) {
         const payout = payouts[index];
         const checklistId = `checklist-${index}`;
@@ -78,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <h4 class="card-title text-primary mb-4">
                                     ${payout.title}
                                 </h4>
-                                <h5 class="text-success mb-3">Что нужно сделать:</h5>
+                                <h5 class="text-success mb-3">Что взять с собой:</h5>
                                 <ul class="list-group list-group-flush">
         `;
 
@@ -100,12 +108,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         html += `
                                 </ul>
-                                <div class="mt-4">
-                                    <a href="${payout.link}" target="_blank" class="btn btn-primary">
+                                <div class="mt-4 d-flex flex-wrap gap-2">
+                                    <a href="${payout.link}" target="_blank" class="btn btn-outline-primary">
                                         ${payout.linkText}
                                     </a>
-                                    <button class="btn btn-outline-secondary ms-2" onclick="goBackToPayouts()">
-                                        Назад к выплатам
+                                    <a href="${payout.mfcLink}" target="_blank" class="btn btn-success">
+                                        ${payout.mfcText}
+                                    </a>
+                                    <button class="btn btn-outline-secondary" onclick="goBackToPayouts()">
+                                        Назад
                                     </button>
                                 </div>
                             </div>
@@ -117,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         payoutsListContainer.innerHTML = html;
 
-        // Добавляем обработчики чекбоксов
+        // Обработчики чекбоксов
         document.querySelectorAll('.checklist-cb').forEach(cb => {
             cb.addEventListener('change', function () {
                 const payoutIdx = this.dataset.payout;
@@ -136,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
         payoutsListContainer.querySelector('.checklist-view').classList.add('show');
     };
 
-    // === КЛИК ПО ИКОНКЕ → СПИСОК ВЫПЛАТ ===
+    // === КЛИК ПО ИКОНКЕ ===
     rubIcon.addEventListener('click', function () {
         renderPayouts();
         mainView.style.display = 'none';
@@ -157,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // === НАЗАД К СПИСКУ ВЫПЛАТ ===
+    // === НАЗАД К СПИСКУ ===
     window.goBackToPayouts = function () {
         renderPayouts();
         payoutsListContainer.querySelector('.payouts-list').classList.add('show');
