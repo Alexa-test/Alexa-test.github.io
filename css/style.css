@@ -264,3 +264,77 @@ body {
     .payout-amount { font-size: 1.3rem; }
     .form-check-label { font-size: 0.95rem; }
 }
+
+/* === ПРОГРЕСС-БАР === */
+.progress-container {
+    margin: 1.5rem 0 1rem;
+    text-align: center;
+}
+
+.progress {
+    height: 12px;
+    background-color: #e9ecef;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #28a745, #34d058);
+    width: 0%;
+    transition: width 0.6s ease;
+    border-radius: 6px;
+}
+
+.progress-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 0.5rem;
+}
+
+/* === МОБИЛЬНАЯ ВЕРСИЯ: БОЛЬШИЙ ЗАГОЛОВОК === */
+@media (max-width: 576px) {
+    .label-top {
+        font-size: 6.8vmin !important;   /* Было 3.8vmin → стало крупнее */
+        top: 6% !important;              /* Поднимаем выше */
+        font-weight: 900 !important;
+        letter-spacing: 1.2px !important;
+        text-shadow: 
+            0 2px 4px rgba(255,255,255,0.95),
+            0 0 8px rgba(255,215,0,0.6);
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .payout-title {
+        font-size: 1.15rem;
+    }
+
+    .payout-amount {
+        font-size: 1.35rem;
+    }
+
+    .form-check-label {
+        font-size: 0.98rem;
+    }
+
+    .progress-container {
+        margin: 1.2rem 0 0.8rem;
+    }
+
+    .progress-text {
+        font-size: 1rem;
+    }
+}
+
+/* Улучшение для всех экранов */
+@media (min-width: 577px) and (max-width: 768px) {
+    .label-top {
+        font-size: 5.8vmin;
+    }
+}

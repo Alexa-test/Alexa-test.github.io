@@ -72,80 +72,105 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // === ЧЕКЛИСТ С ЧЕКБОКСАМИ + МФЦ ===
+    // === ЧЕКЛИСТ С ЧЕКБОКСАМИ + ПРОГРЕСС-БАР ===
     window.showChecklist = function (index) {
-        const payout = payouts[index];
-        const checklistId = `checklist-${index}`;
-        const saved = JSON.parse(localStorage.getItem(checklistId) || '[]');
+    const payout = payouts[index];
+    const checklistId = `checklist-${index}`;
+    const saved = JSON.parse(localStorage.getItem(checklistId) || '[]');
+    const total = payout.checklist.length;
+    const done = saved.length;
+    const percent = Math.round((done / total) * 100);
 
-        let html = `
-            <div class="container checklist-view">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="card border-0 shadow-sm">
-                            <div class="card-body">
-                                <h4 class="card-title text-primary mb-4">
-                                    ${payout.title}
-                                </h4>
-                                <h5 class="text-success mb-3">Что взять с собой:</h5>
-                                <ul class="list-group list-group-flush">
-        `;
+    let html = `
+        <div class="container checklist-view">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary mb-4">
+                                ${payout.title}
+                            </h4>
 
-        payout.checklist.forEach((item, i) => {
-            const checked = saved.includes(i) ? 'checked' : '';
-            const id = `cb-${index}-${i}`;
-            html += `
-                <li class="list-group-item d-flex align-items-center py-3">
-                    <div class="form-check">
-                        <input class="form-check-input checklist-cb" type="checkbox" 
-                               id="${id}" ${checked} data-index="${i}" data-payout="${index}">
-                        <label class="form-check-label" for="${id}">
-                            ${item}
-                        </label>
-                    </div>
-                </li>
-            `;
-        });
-
-        html += `
-                                </ul>
-                                <div class="mt-4 d-flex flex-wrap gap-2">
-                                    <a href="${payout.link}" target="_blank" class="btn btn-outline-primary">
-                                        ${payout.linkText}
-                                    </a>
-                                    <a href="${payout.mfcLink}" target="_blank" class="btn btn-success">
-                                        ${payout.mfcText}
-                                    </a>
-                                    <button class="btn btn-outline-secondary" onclick="goBackToPayouts()">
-                                        Назад
-                                    </button>
+                            <!-- ПРОГРЕСС-БАР -->
+                            <div class="progress-container">
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: ${percent}%"></div>
                                 </div>
+                                <div class="progress-text">
+                                    ${done} из ${total} готово (${percent}%)
+                                </div>
+                            </div>
+
+                            <h5 class="text-success mb-3">Что взять с собой:</h5>
+                            <ul class="list-group list-group-flush">
+    `;
+
+    payout.checklist.forEach((item, i) => {
+        const checked = saved.includes(i) ? 'checked' : '';
+        const id = `cb-${index}-${i}`;
+        html += `
+            <li class="list-group-item d-flex align-items-center py-3">
+                <div class="form-check">
+                    <input class="form-check-input checklist-cb" type="checkbox" 
+                           id="${id}" ${checked} data-index="${i}" data-payout="${index}">
+                    <label class="form-check-label" for="${id}">
+                        ${item}
+                    </label>
+                </div>
+            </li>
+        `;
+    });
+
+    html += `
+                            </ul>
+                            <div class="mt-4 d-flex flex-wrap gap-2">
+                                <a href="${payout.link}" target="_blank" class="btn btn-outline-primary">
+                                    ${payout.linkText}
+                                </a>
+                                <a href="${payout.mfcLink}" target="_blank" class="btn btn-success">
+                                    ${payout.mfcText}
+                                </a>
+                                <button class="btn btn-outline-secondary" onclick="goBackToPayouts()">
+                                    Назад
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        `;
+        </div>
+    `;
 
-        payoutsListContainer.innerHTML = html;
+    payoutsListContainer.innerHTML = html;
 
-        // Обработчики чекбоксов
-        document.querySelectorAll('.checklist-cb').forEach(cb => {
-            cb.addEventListener('change', function () {
-                const payoutIdx = this.dataset.payout;
-                const itemIdx = this.dataset.index;
-                const key = `checklist-${payoutIdx}`;
-                let saved = JSON.parse(localStorage.getItem(key) || '[]');
-                if (this.checked) {
-                    if (!saved.includes(+itemIdx)) saved.push(+itemIdx);
-                } else {
-                    saved = saved.filter(x => x !== +itemIdx);
-                }
-                localStorage.setItem(key, JSON.stringify(saved));
-            });
+    // === ОБНОВЛЕНИЕ ПРОГРЕССА ПРИ КЛИКЕ ===
+    document.querySelectorAll('.checklist-cb').forEach(cb => {
+        cb.addEventListener('change', function () {
+            const payoutIdx = this.dataset.payout;
+            const itemIdx = this.dataset.index;
+            const key = `checklist-${payoutIdx}`;
+            let saved = JSON.parse(localStorage.getItem(key) || '[]');
+            if (this.checked) {
+                if (!saved.includes(+itemIdx)) saved.push(+itemIdx);
+            } else {
+                saved = saved.filter(x => x !== +itemIdx);
+            }
+            localStorage.setItem(key, JSON.stringify(saved));
+
+            // Перерисовываем прогресс
+            const newDone = saved.length;
+            const newPercent = Math.round((newDone / total) * 100);
+            const bar = document.querySelector('.progress-bar');
+            const text = document.querySelector('.progress-text');
+            if (bar && text) {
+                bar.style.width = `${newPercent}%`;
+                text.textContent = `${newDone} из ${total} готово (${newPercent}%)`;
+            }
         });
+    });
 
-        payoutsListContainer.querySelector('.checklist-view').classList.add('show');
-    };
+    payoutsListContainer.querySelector('.checklist-view').classList.add('show');
+};
 
     // === КЛИК ПО ИКОНКЕ ===
     rubIcon.addEventListener('click', function () {
