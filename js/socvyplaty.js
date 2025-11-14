@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
   },
 
   {
-    title: "Деньги вместо земли",
+    title: "Деньги вместо земельного участка",
     amount: "419 600 ₽",
     desc: "Единовременная денежная выплата взамен предоставления земельного участка в собственность бесплатно",
     checklist: [
@@ -215,7 +215,57 @@ document.addEventListener('DOMContentLoaded', function () {
     mfcLink: "https://mfc47.ru/declarant/info.php#532101",
     mfcText: "В МФЦ"
   },
+  {
+    title: "Единовременная выплата семьям погибших",
+    amount: "2 000 000 ₽",
+    desc: "Родителям, жене, детям погибшего участника СВО.",
+    checklist: [
+      "Заявление",
+      "Паспорт",
+      "Свидетельство о смерти",
+      "Свидетельство о браке / рождении",
+      "Реквизиты карты «Мир»"
+    ],
+    link: "https://cszn.info/contact/structure",
+    linkText: "В Соцзащиту",
+    mfcLink: "https://mfc47.ru/declarant/info.php#532101",
+    mfcText: "В МФЦ"
+  },
     {
+    title: "Ежемесячная денежная выплата инвалидам боевых действий",
+    amount: "8901 ₽/мес (1 группа инвалидности); 5340 ₽/мес (2 группа); 2671 ₽ (3 группа)",
+    desc: "Право на выплату предоставляется инвалидам боевых действий",
+    checklist: [
+      "Заявление",
+      "Паспорт родителя",
+      "Свидетельство о рождении",
+      "Свидетельство о смерти",
+      "Справка об очной форме обучения ребенка (если возраст 18-23 года)",
+      "Реквизиты карты «Мир»"
+    ],
+    link: "https://cszn.info/contact/structure",
+    linkText: "В Соцзащиту",
+    mfcLink: "https://mfc47.ru/declarant/info.php#532101",
+    mfcText: "В МФЦ"
+  },
+  {
+    title: "Ежегодная компенсация расходов на бензин, ремонт, техническое обслуживание транспортных средств и запасных частей к ним ",
+    amount: "2 047 ₽/год",
+    desc: "Предоставляется инвалидам, имеющим медицинские показания на обеспечение транспортными средствами и показания к вождению, имеющим транспортные средства, управление которыми они осуществляют самостоятельно",
+    checklist: [
+      "Заявление",
+      "Паспорт родителя",
+      "Свидетельство о рождении",
+      "Свидетельство о смерти",
+      "Справка об очной форме обучения ребенка (если возраст 18-23 года)",
+      "Реквизиты карты «Мир»"
+    ],
+    link: "https://cszn.info/contact/structure",
+    linkText: "В Соцзащиту",
+    mfcLink: "https://mfc47.ru/declarant/info.php#532101",
+    mfcText: "В МФЦ"
+  },
+  {
     title: "Ежемесячная выплата детям погибших",
     amount: "9 202,5 ₽/мес до 18 лет (до 23 — если учится)",
     desc: "Ежемесячная денежная выплата по потере кормильца детям граждан, погибших (умерших) вследствие выполнения задач в ходе специальной военной операции",
@@ -233,28 +283,75 @@ document.addEventListener('DOMContentLoaded', function () {
     mfcText: "В МФЦ"
   },
   {
-    title: "Выплата семьям погибших",
-    amount: "2 000 000 ₽",
-    desc: "Родителям, жене, детям погибшего участника СВО.",
+    title: "Ежемесячная выплата родителям погибших",
+    amount: "4 786 ₽/мес",
+    desc: "Ежемесячная денежная выплата родителю (отчиму, мачехе) погибших при исполнении обязанностей военной службы (служебных обязанностей) ветеранов боевых действий",
     checklist: [
       "Заявление",
-      "Паспорт",
+      "Паспорт родителя",
+      "Свидетельство о рождении",
       "Свидетельство о смерти",
-      "Свидетельство о браке / рождении",
+      "Справка об очной форме обучения ребенка (если возраст 18-23 года)",
       "Реквизиты карты «Мир»"
     ],
     link: "https://cszn.info/contact/structure",
     linkText: "В Соцзащиту",
     mfcLink: "https://mfc47.ru/declarant/info.php#532101",
     mfcText: "В МФЦ"
-  }
+  },
+  {
+    title: "Компенсация затрат по изготовлению и установке памятников",
+    amount: "54 215 ₽",
+    desc: "Единовременная денежная компенсация затрат по изготовлению и установке памятников для погибших участников СВО",
+    checklist: [
+      "Заявление",
+      "Паспорт родителя",
+      "Свидетельство о рождении",
+      "Свидетельство о смерти",
+      "Справка об очной форме обучения ребенка (если возраст 18-23 года)",
+      "Реквизиты карты «Мир»"
+    ],
+    link: "https://cszn.info/contact/structure",
+    linkText: "В Соцзащиту",
+    mfcLink: "https://mfc47.ru/declarant/info.php#532101",
+    mfcText: "В МФЦ"
+  },
+  {
+    title: "Ежемесячная денежная выплата членам семей погибшего инвалида боевых действий",
+    amount: "2671 ₽/мес",
+    desc: "Право на выплату предоставляется одному из родителей либо супругу или супруге погибшего (умершего) инвалида боевых действий, не вступившим в повторный брак",
+    checklist: [
+      "Заявление",
+      "Паспорт родителя",
+      "Свидетельство о рождении",
+      "Свидетельство о смерти",
+      "Справка об очной форме обучения ребенка (если возраст 18-23 года)",
+      "Реквизиты карты «Мир»"
+    ],
+    link: "https://cszn.info/contact/structure",
+    linkText: "В Соцзащиту",
+    mfcLink: "https://mfc47.ru/declarant/info.php#532101",
+    mfcText: "В МФЦ"
+  },
 ];
     
+
+    // === СТРЕЛКА НАЗАД (вставляется в каждый раздел) ===
+    function getBackArrow() {
+        return `
+            <div class="back-arrow-circle" onclick="goBackToMain()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                </svg>
+            </div>
+        `;
+    }
 
     // === ГЕНЕРАЦИЯ СПИСКА ВЫПЛАТ ===
     function renderPayouts() {
         let html = `
-            <div class="container payouts-list">
+            <div class="container payouts-list position-relative">
+                ${getBackArrow()}
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
         `;
@@ -262,9 +359,7 @@ document.addEventListener('DOMContentLoaded', function () {
         payouts.forEach((payout, index) => {
             html += `
                 <div class="payout-card" data-index="${index}" onclick="showChecklist(${index})">
-                    <div class="payout-title">
-                        ${payout.title}
-                    </div>
+                    <div class="payout-title">${payout.title}</div>
                     <div class="payout-amount">${payout.amount}</div>
                     <p class="text-muted mt-2">${payout.desc}</p>
                 </div>
@@ -272,9 +367,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         html += `
-                        <button class="btn btn-outline-secondary back-btn" onclick="goBackToMain()">
-                            Назад к иконке
-                        </button>
                     </div>
                 </div>
             </div>
@@ -283,108 +375,105 @@ document.addEventListener('DOMContentLoaded', function () {
         payoutsListContainer.innerHTML = html;
     }
 
-    // === ЧЕКЛИСТ С ЧЕКБОКСАМИ + МФЦ ===
-    // === ЧЕКЛИСТ С ЧЕКБОКСАМИ + ПРОГРЕСС-БАР ===
+    // === ЧЕКЛИСТ ===
     window.showChecklist = function (index) {
-    const payout = payouts[index];
-    const checklistId = `checklist-${index}`;
-    const saved = JSON.parse(localStorage.getItem(checklistId) || '[]');
-    const total = payout.checklist.length;
-    const done = saved.length;
-    const percent = Math.round((done / total) * 100);
+        const payout = payouts[index];
+        const checklistId = `checklist-${index}`;
+        const saved = JSON.parse(localStorage.getItem(checklistId) || '[]');
+        const total = payout.checklist.length;
+        const done = saved.length;
+        const percent = Math.round((done / total) * 100);
 
-    let html = `
-        <div class="container checklist-view">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-body">
-                            <h4 class="card-title text-primary mb-4">
-                                ${payout.title}
-                            </h4>
+        let html = `
+            <div class="container checklist-view position-relative">
+                ${getBackArrow()}
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title text-primary mb-4">${payout.title}</h4>
 
-                            <!-- ПРОГРЕСС-БАР -->
-                            <div class="progress-container">
-                                <div class="progress">
-                                    <div class="progress-bar" style="width: ${percent}%"></div>
+                                <div class="progress-container">
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: ${percent}%"></div>
+                                    </div>
+                                    <div class="progress-text">
+                                        ${done} из ${total} готово (${percent}%)
+                                    </div>
                                 </div>
-                                <div class="progress-text">
-                                    ${done} из ${total} готово (${percent}%)
-                                </div>
-                            </div>
 
-                            <h5 class="text-success mb-3">Что взять с собой:</h5>
-                            <ul class="list-group list-group-flush">
-    `;
-
-    payout.checklist.forEach((item, i) => {
-        const checked = saved.includes(i) ? 'checked' : '';
-        const id = `cb-${index}-${i}`;
-        html += `
-            <li class="list-group-item d-flex align-items-center py-3">
-                <div class="form-check">
-                    <input class="form-check-input checklist-cb" type="checkbox" 
-                           id="${id}" ${checked} data-index="${i}" data-payout="${index}">
-                    <label class="form-check-label" for="${id}">
-                        ${item}
-                    </label>
-                </div>
-            </li>
+                                <h5 class="text-success mb-3">Что взять с собой:</h5>
+                                <ul class="list-group list-group-flush">
         `;
-    });
 
-    html += `
-                            </ul>
-                            <div class="mt-4 d-flex flex-wrap gap-2">
-                                <a href="${payout.link}" target="_blank" class="btn btn-outline-primary">
-                                    ${payout.linkText}
-                                </a>
-                                <a href="${payout.mfcLink}" target="_blank" class="btn btn-success">
-                                    ${payout.mfcText}
-                                </a>
-                                <button class="btn btn-outline-secondary" onclick="goBackToPayouts()">
-                                    Назад
-                                </button>
+        payout.checklist.forEach((item, i) => {
+            const checked = saved.includes(i) ? 'checked' : '';
+            const id = `cb-${index}-${i}`;
+            html += `
+                <li class="list-group-item d-flex align-items-center py-3">
+                    <div class="form-check">
+                        <input class="form-check-input checklist-cb" type="checkbox" 
+                               id="${id}" ${checked} data-index="${i}" data-payout="${index}">
+                        <label class="form-check-label" for="${id}">${item}</label>
+                    </div>
+                </li>
+            `;
+        });
+
+        html += `
+                                </ul>
+                                <div class="mt-4 d-flex flex-wrap gap-2">
+                                    <a href="${payout.link}" target="_blank" class="btn btn-outline-primary">
+                                        ${payout.linkText}
+                                    </a>
+                                    <a href="${payout.mfcLink}" target="_blank" class="btn btn-success">
+                                        ${payout.mfcText}
+                                    </a>
+                                    <button class="btn btn-outline-secondary" onclick="goBackToPayouts()">
+                                        Назад к списку
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    `;
+        `;
 
-    payoutsListContainer.innerHTML = html;
+        payoutsListContainer.innerHTML = html;
+        addCheckboxListeners();
+        payoutsListContainer.querySelector('.checklist-view').classList.add('show');
+    };
 
-    // === ОБНОВЛЕНИЕ ПРОГРЕССА ПРИ КЛИКЕ ===
-    document.querySelectorAll('.checklist-cb').forEach(cb => {
-        cb.addEventListener('change', function () {
-            const payoutIdx = this.dataset.payout;
-            const itemIdx = this.dataset.index;
-            const key = `checklist-${payoutIdx}`;
-            let saved = JSON.parse(localStorage.getItem(key) || '[]');
-            if (this.checked) {
-                if (!saved.includes(+itemIdx)) saved.push(+itemIdx);
-            } else {
-                saved = saved.filter(x => x !== +itemIdx);
-            }
-            localStorage.setItem(key, JSON.stringify(saved));
+    // === ЧЕКБОКСЫ ===
+    function addCheckboxListeners() {
+        document.querySelectorAll('.checklist-cb').forEach(cb => {
+            cb.addEventListener('change', function () {
+                const payoutIdx = this.dataset.payout;
+                const itemIdx = this.dataset.index;
+                const key = `checklist-${payoutIdx}`;
+                let saved = JSON.parse(localStorage.getItem(key) || '[]');
+                if (this.checked) {
+                    if (!saved.includes(+itemIdx)) saved.push(+itemIdx);
+                } else {
+                    saved = saved.filter(x => x !== +itemIdx);
+                }
+                localStorage.setItem(key, JSON.stringify(saved));
 
-            // Перерисовываем прогресс
-            const newDone = saved.length;
-            const newPercent = Math.round((newDone / total) * 100);
-            const bar = document.querySelector('.progress-bar');
-            const text = document.querySelector('.progress-text');
-            if (bar && text) {
-                bar.style.width = `${newPercent}%`;
-                text.textContent = `${newDone} из ${total} готово (${newPercent}%)`;
-            }
+                const total = payouts[payoutIdx].checklist.length;
+                const newDone = saved.length;
+                const newPercent = Math.round((newDone / total) * 100);
+                const bar = document.querySelector('.progress-bar');
+                const text = document.querySelector('.progress-text');
+                if (bar && text) {
+                    bar.style.width = `${newPercent}%`;
+                    text.textContent = `${newDone} из ${total} готово (${newPercent}%)`;
+                }
+            });
         });
-    });
+    }
 
-    payoutsListContainer.querySelector('.checklist-view').classList.add('show');
-};
-
-    // === КЛИК ПО ИКОНКЕ ===
+    // === КЛИК ПО ИКОНКЕ РУБЛЯ ===
     rubIcon.addEventListener('click', function () {
         renderPayouts();
         mainView.style.display = 'none';
@@ -392,7 +481,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.background = '#f8f9fa';
     });
 
-    // === НАЗАД К ИКОНКЕ ===
+    // === НАЗАД К ИКОНКАМ (ГЛОБАЛЬНАЯ) ===
     window.goBackToMain = function () {
         const currentView = payoutsListContainer.querySelector('.payouts-list, .checklist-view');
         if (currentView) {
@@ -411,7 +500,6 @@ document.addEventListener('DOMContentLoaded', function () {
         payoutsListContainer.querySelector('.payouts-list').classList.add('show');
     };
 
-    // Плавность
     payoutsListContainer.addEventListener('transitionend', () => {
         const active = payoutsListContainer.querySelector('.show');
         if (active) active.style.overflow = 'visible';

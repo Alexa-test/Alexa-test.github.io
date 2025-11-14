@@ -17,22 +17,39 @@
 <!-- Главный экран: иконка -->
 <div class="container-fluid text-center icon-wrapper" id="mainView">
     <div class="rub-icon" id="rubIcon">
-        <h2 class="label-top">Социальные выплаты</h2>
+    <h2 class="label-top">Социальные выплаты</h2>
 
-        <div class="shield">
-            <div class="rub-symbol">₽</div>
-        </div>
-
-        <div class="coins-row">
-            <div class="coin"></div>
-            <div class="coin"></div>
-            <div class="coin"></div>
-            <div class="coin"></div>
-            <div class="coin"></div>
-        </div>
+    <!-- Логотип + рубль -->
+    <div class="logo-container">
+        <img src="img/komitet.jpg.c1200.png" alt="Логотип" class="logo-img">
     </div>
+    <!-- Тёмный рубль снизу справа -->
+        <div class="rub-stamp">₽</div>
 
-    <p class="subtitle">ЛОГКУ «Центр социальной защиты населения»</p>
+    <!-- Монетки оставим для красоты (по желанию можно убрать) -->
+    <!-- <div class="coins-row">
+        <div class="coin"></div>
+        <div class="coin"></div>
+        <div class="coin"></div>
+        <div class="coin"></div>
+        <div class="coin"></div>
+    </div> -->
+</div>
+
+    <!-- <p class="subtitle">ЛОГКУ «Центр социальной защиты населения»</p> -->
+
+
+    <!-- ЗДРАВООХРАНЕНИЕ: АПТЕЧКА -->
+<div class="health-icon" id="healthIcon">
+    <h2 class="label-top">Здравоохранение</h2>
+
+    <!-- Логотип + серебристый значок -->
+    <div class="logo-container">
+        <img src="img/photo_2022-10-27_10-04-05-Photoroom.png" alt="Логотип здравоохранения" class="logo-img">
+        
+    </div>
+    <div class="health-coin">+</div>
+</div>
 </div>
 
 <!-- Пустой контейнер для списка выплат (будет заполнен JS) -->
@@ -42,6 +59,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Локальный JS -->
 <script src="js/socvyplaty.js"></script>
+<script src="js/health.js"></script>
 
 </body>
 </html>

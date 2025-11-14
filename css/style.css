@@ -49,7 +49,7 @@ body {
 
 .label-top {
     position: absolute;
-    top: 10%;
+    top: 0%;
     left: 50%;
     transform: translateX(-50%);
     color: var(--text);
@@ -337,4 +337,400 @@ body {
     .label-top {
         font-size: 5.8vmin;
     }
+}
+
+
+/* === ЗДРАВООХРАНЕНИЕ: АПТЕЧКА === */
+.health-icon {
+    width: 82vmin;
+    height: 82vmin;
+    max-width: 580px;
+    max-height: 580px;
+    position: relative;
+    cursor: pointer;
+    animation: medPulse 2.6s infinite ease-in-out;
+    margin: 2.5rem auto 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.12));
+    transition: transform 0.2s ease;
+}
+
+.health-icon:hover {
+    transform: scale(1.03);
+}
+
+.med-shield {
+    width: 76%;
+    height: 76%;
+    background: #ffffff;
+    border-radius: 50%;
+    border: 7px solid #28a745;
+    box-shadow: 
+        0 0 30px rgba(40, 167, 69, 0.3),
+        0 0 60px rgba(40, 167, 69, 0.15),
+        inset 0 2px 8px rgba(255,255,255,0.9);
+    position: relative;
+    overflow: hidden;
+}
+
+.med-cross {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 58%;
+    height: 58%;
+}
+
+.cross-h, .cross-v {
+    position: absolute;
+    background: #28a745;
+    border-radius: 8px;
+}
+
+.cross-h {
+    width: 100%;
+    height: 22%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.cross-v {
+    width: 22%;
+    height: 100%;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+.icon-label {
+    color: #28a745;
+    font-weight: 700;
+    font-size: 4.8vmin;
+    margin-top: 1.2rem;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.9);
+    letter-spacing: 1.1px;
+}
+
+/* АНИМАЦИЯ ПУЛЬСАЦИИ */
+@keyframes medPulse {
+    0%, 100% { 
+        filter: drop-shadow(0 10px 30px rgba(0,0,0,0.12)); 
+        transform: scale(1); 
+    }
+    50% { 
+        filter: drop-shadow(0 15px 40px rgba(40, 167, 69, 0.35)); 
+        transform: scale(1.05); 
+    }
+}
+
+/* === МОБИЛКА === */
+@media (max-width: 576px) {
+    .health-icon {
+        width: 68vmin;
+        height: 68vmin;
+    }
+    .icon-label {
+        font-size: 3.6vmin;
+        margin-top: 0.8rem;
+    }
+}
+
+/* === ЗАГЛУШКА ЗДРАВООХРАНЕНИЯ === */
+.med-icon-large {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+}
+
+.med-shield-large {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    border-radius: 50%;
+    border: 8px solid #28a745;
+    position: relative;
+    box-shadow: 0 0 30px rgba(40, 167, 69, 0.3);
+}
+
+.med-cross-large {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+}
+
+.cross-h, .cross-v {
+    position: absolute;
+    background: #28a745;
+    border-radius: 6px;
+}
+
+.cross-h {
+    width: 100%;
+    height: 24%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.cross-v {
+    width: 24%;
+    height: 100%;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+/* === СТРЕЛКА НАЗАД — ЗАКРЕПЛЕНА ПРИ СКРОЛЛЕ === */
+.back-arrow-circle {
+    position: sticky !important;
+    top: 1rem;
+    left: 1rem;
+    width: 44px;
+    height: 44px;
+    background: #28a745;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    z-index: 9999;
+    transition: all 0.2s ease;
+    border: 2px solid #fff;
+}
+
+.back-arrow-circle:hover {
+    background: #218838;
+    transform: scale(1.08);
+    box-shadow: 0 5px 16px rgba(0,0,0,0.3);
+}
+
+.back-arrow-circle svg {
+    transform: rotate(90deg);
+    width: 20px;
+    height: 20px;
+}
+
+/* === АДАПТИВ: МЕНЬШЕ НА МОБИЛКЕ === */
+@media (max-width: 576px) {
+    .back-arrow-circle {
+        width: 40px;
+        height: 40px;
+        top: 0.8rem;
+        left: 0.8rem;
+    }
+    .back-arrow-circle svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* === ЛОГОТИП + ТЁМНЫЙ РУБЛЬ-ШТАМП === */
+.logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 76%;
+    height: 76%;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 
+        0 0 35px var(--shadow-gold), 
+        0 0 70px rgba(255, 215, 0, 0.25),
+        inset 0 2px 6px rgba(255,255,255,0.7);
+    border: 6px solid var(--gold-border);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.logo-img {
+    width: 92%;
+    height: 92%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+/* === РУБЛЬ — ТЁМНЫЙ, СНИЗУ СПРАВА === */
+.rub-stamp {
+    position: absolute;
+    bottom: 13%;
+    right: 12%;
+    width: 14vmin;
+    height: 14vmin;
+    background: rgba(30, 30, 30, 0.92);
+    color: white;
+    font-size: 9vmin;
+    font-weight: 900;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #ffffff;
+    box-shadow: 
+        0 3px 8px rgba(0,0,0,0.3),
+        inset 0 1px 3px rgba(255,255,255,0.2);
+    z-index: 3;
+    line-height: 1;
+    letter-spacing: -1px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    backdrop-filter: blur(1px);
+    transition: all 0.2s ease;
+}
+
+.rub-stamp::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.3);
+    pointer-events: none;
+}
+
+/* При наведении — лёгкий эффект */
+.rub-icon:hover .rub-stamp {
+    transform: scale(1.08);
+    background: rgba(20, 20, 20, 0.98);
+    box-shadow: 0 5px 14px rgba(0,0,0,0.4);
+}
+
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 576px) {
+    .rub-stamp {
+        width: 11vmin;
+        height: 11vmin;
+        font-size: 7.5vmin;
+        bottom: 17%;
+        right: 12%;
+        border-width: 2.5px;
+    }
+    
+    .logo-img {
+        width: 88%;
+        height: 88%;
+    }
+    
+    .label-top {
+        font-size: 6.8vmin !important;
+        top: 0% !important;
+    }
+}
+
+/* === ЗДРАВООХРАНЕНИЕ: ЛОГОТИП + СЕРЕБРИСТЫЙ ЗНАЧОК === */
+.health-icon {
+    width: 82vmin;
+    height: 82vmin;
+    max-width: 580px;
+    max-height: 580px;
+    position: relative;
+    cursor: pointer;
+    animation: iconPulse 2.6s infinite ease-in-out;
+    margin: 2.5rem auto 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.12));
+    transition: transform 0.2s ease;
+}
+
+.health-icon:hover {
+    transform: scale(1.03);
+}
+
+.health-icon .logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 76%;
+    height: 76%;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 
+               0 0 35px rgba(40, 167, 69, 0.3), 
+        0 0 70px rgba(40, 167, 69, 0.15),
+        inset 0 2px 6px rgba(255,255,255,0.7);
+    border: 6px solid #28a745;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.health-icon .logo-img {
+    width: 92%;
+    height: 92%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+/* === СЕРЕБРИСТАЯ МЕДИЦИНСКАЯ "МОНЕТА" === */
+.health-coin {
+position: absolute;
+bottom: 13%;
+right: 12%;
+width: 14vmin;
+height: 14vmin;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 9vmin;
+font-weight: 900;
+color: #f0f0f0;
+z-index: 3;
+line-height: 1;
+/* Зелёный металлический градиент для здоровья */
+background: radial-gradient(
+ellipse at 35% 35%,
+#50c878 0%,
+#3cb371 20%,
+#2e8b57 45%,
+#228b22 70%,
+#006400 90%,
+#004d00 100%
+);
+box-shadow:
+0 3px 8px rgba(0,0,0,0.3),
+0 0 0 1px rgba(255,255,255,0.15) inset,
+0 0 12px rgba(40,167,69,0.2),
+inset 0 1px 2px rgba(255,255,255,0.3),
+inset 0 -1px 2px rgba(0,0,0,0.3);
+border: 2.5px solid #90ee90;
+outline: 1px solid rgba(0,0,0,0.2);
+text-shadow:
+0 1px 0 #ffffff,
+0 -1px 0 #006400,
+1px 1px 1px rgba(0,0,0,0.4);
+background-size: 180% 180%;
+animation: coinShine 4s infinite ease-in-out;
+transition: all 0.25s ease;
+}
+.health-icon:hover .health-coin {
+transform: scale(1.1);
+animation-duration: 2s;
+}
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 576px) {
+.health-coin {
+width: 11vmin;
+height: 11vmin;
+font-size: 7.5vmin;
+bottom: 11%;
+right: 10%;
+border-width: 2px;
+}
 }
