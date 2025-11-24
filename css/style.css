@@ -569,15 +569,15 @@ body {
     right: 12%;
     width: 14vmin;
     height: 14vmin;
-    background: rgba(30, 30, 30, 0.92);
+    background: #ffc801;
     color: white;
     font-size: 9vmin;
-    font-weight: 900;
+    font-weight: 700;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid #ffffff;
+    border: 3px solid lightyellow;
     box-shadow: 
         0 3px 8px rgba(0,0,0,0.3),
         inset 0 1px 3px rgba(255,255,255,0.2);
@@ -601,7 +601,7 @@ body {
 /* При наведении — лёгкий эффект */
 .rub-icon:hover .rub-stamp {
     transform: scale(1.08);
-    background: rgba(20, 20, 20, 0.98);
+    background: #ffc801d1;
     box-shadow: 0 5px 14px rgba(0,0,0,0.4);
 }
 
