@@ -829,6 +829,10 @@ border-width: 2px;
 
 /* Адаптив: на мобильных — крупнее */
 @media (max-width: 767.98px) {
+    .container {
+        display: flex;
+        justify-content: center;
+    }
     .icon-block {
         width: 82vmin;
         height: 82vmin;
