@@ -256,6 +256,7 @@ body {
 /* === АДАПТИВНОСТЬ === */
 @media (max-width: 576px) {
     .rub-icon { width: 68vmin; height: 68vmin; }
+    .health-icon { width: 68vmin; height: 68vmin; } 
     .rub-symbol { font-size: 46vmin; }
     .coin { width: 8.5vmin; height: 8.5vmin; }
     .label-top { font-size: 3.8vmin; top: 8%; }
@@ -621,10 +622,31 @@ body {
         height: 88%;
     }
     
-    .label-top {
+    /* .label-top {
         font-size: 6.8vmin !important;
         top: 0% !important;
-    }
+    } */
+    .label-top {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 84%;
+    max-width: 420px;
+    padding: 0 1rem;
+    margin: 0;
+    font-weight: 800;
+    font-size: clamp(1.6rem, 4.8vmin, 3.8rem) !important;
+    line-height: 1.18;
+    text-align: center;
+    color: #1a1a1a;
+    text-shadow: 0 2px 6px rgba(255,255,255,0.9);
+    z-index: 4;
+    pointer-events: none;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
 }
 
 /* === ЗДРАВООХРАНЕНИЕ: ЛОГОТИП + СЕРЕБРИСТЫЙ ЗНАЧОК === */
@@ -643,6 +665,7 @@ body {
     align-items: center;
     filter: drop-shadow(0 10px 30px rgba(0,0,0,0.12));
     transition: transform 0.2s ease;
+    --bs-gutter-x: 0 !important;
 }
 
 .health-icon:hover {
@@ -733,4 +756,143 @@ bottom: 11%;
 right: 10%;
 border-width: 2px;
 }
+}
+
+/* Делаем иконки одинакового размера и центрируем внутри колонки */
+.rub-icon,
+.health-icon {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;           /* квадрат */
+    max-width: 520px;              /* ограничиваем на больших экранах */
+    margin: 0 auto;                /* центрируем в колонке */
+    position: relative;
+    cursor: pointer;
+    animation: none;               /* убираем старые анимации из inline-стилей, если они мешают */
+}
+
+/* Адаптив: на ноутбуках и больше — максимум 520px, на мобильных — почти весь экран */
+@media (max-width: 767.98px) {
+    .rub-icon,
+    .health-icon {
+        width: 82vmin;
+        height: 82vmin;
+        max-width: none;
+    }
+}
+
+/* Восстанавливаем анимации (если хочешь) */
+.rub-icon {
+    animation: glowPulse 2.4s infinite ease-in-out;
+}
+
+.health-icon {
+    animation: medPulse 2.6s infinite ease-in-out;
+}
+
+/* Убираем лишние отступы у .icon-wrapper, он больше не нужен */
+.icon-wrapper {
+    max-width: none;
+    padding: 0;
+}
+
+/* Универсальные стили для всех новых иконок */
+.icon-block {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 520px;
+    margin: 0 auto;
+    position: relative;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.icon-block:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.icon-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 76%;
+    height: 76%;
+}
+
+.icon-inner svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Адаптив: на мобильных — крупнее */
+@media (max-width: 767.98px) {
+    .icon-block {
+        width: 82vmin;
+        height: 82vmin;
+        max-width: none;
+    }
+    .label-top {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 84%;
+    max-width: 420px;
+    padding: 0 1rem;
+    margin: 0;
+    font-weight: 800;
+    font-size: clamp(1.6rem, 4.8vmin, 3.8rem) !important;
+    line-height: 1.18;
+    text-align: center;
+    color: #1a1a1a;
+    text-shadow: 0 2px 6px rgba(255,255,255,0.9);
+    z-index: 4;
+    pointer-events: none;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    hyphens: auto;
+}
+}
+
+
+/* ============================================= */
+/* ТЕКСТ НАД ИКОНКАМИ — ПЕРЕНОС ТОЛЬКО НА МОБИЛКЕ */
+/* ============================================= */
+
+/* Десктоп — как было: одна строка сверху, не переносится */
+@media (min-width: 992px) {
+    .label-top {
+        white-space: nowrap !important;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        top: 5% !important;
+        font-size: 4.8vmin !important;
+    }
+}
+
+/* Мобильные + планшеты (<992px) — переносим в центр и разрешаем перенос строк */
+@media (max-width: 991.98px) {
+    .label-top {
+        position: absolute !important;
+        top: 6% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 86% !important;
+        max-width: 420px;
+        padding: 0 12px;
+        font-size: clamp(1.7rem, 5vmin, 3.6rem) !important;
+        font-weight: 800 !important;
+        line-height: 1.2 !important;
+        text-align: center !important;
+        white-space: normal !important;           /* ВАЖНО: разрешаем перенос */
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+        hyphens: auto;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+        z-index: 10;
+        pointer-events: none;
+    }
 }

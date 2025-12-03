@@ -1,65 +1,273 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Социальные выплаты — ЛОГКУ ЦСЗН</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Госуслуги и меры поддержки — Ленинградская область</title>
 
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <!-- Локальные стили -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>        
+    <script src="js/socvyplaty.js"></script>
+  </head>
+  <body>
+    <!-- Главный экран: выбор направления -->
+    <div class="container py-4 py-md-5" id="mainView">
+      <div
+        class="row row-cols-1 row-cols-md-2 g-4 g-lg-5 justify-content-center"
+      >
+        <!-- 1. Социальные выплаты — оставляем id="rubIcon" и data-id -->
+        <div class="col">
+          <div
+            class="icon-block rub-icon"
+            id="rubIcon"
+            data-title="Социальные выплаты"
+            data-id="socvyplaty"
+          >
+            <h2 class="label-top">Социальные выплаты</h2>
+            <div class="logo-container">
+              <img
+                src="img/komitet.jpg.c1200.png"
+                alt="Логотип"
+                class="logo-img"
+              />
+            </div>
+            <div class="rub-stamp">₽</div>
+          </div>
+        </div>
 
-<!-- Главный экран: иконка -->
-<div class="container-fluid text-center icon-wrapper" id="mainView">
-    <div class="rub-icon" id="rubIcon">
-    <h2 class="label-top">Социальные выплаты</h2>
+        <!-- 2. Здравоохранение -->
+        <div class="col">
+          <div
+            class="icon-block health-icon"
+            data-title="Здравоохранение"
+            data-id="health"
+          >
+            <h2 class="label-top">Здравоохранение</h2>
+            <div class="logo-container">
+              <img
+                src="img/photo_2025-11-24_11-06-24.jpg"
+                alt="Здравоохранение"
+                class="logo-img"
+              />
+            </div>
+          </div>
+        </div>
 
-    <!-- Логотип + рубль -->
-    <div class="logo-container">
-        <img src="img/komitet.jpg.c1200.png" alt="Логотип" class="logo-img">
+        <!-- 3. ТСР (Технические средства реабилитации) -->
+        <div class="col">
+          <div
+            class="icon-block tsr-icon"
+            data-title="Технические средства реабилитации"
+            data-id="tsr"
+          >
+            <h2 class="label-top">Технические средства реабилитации</h2>
+            <div class="logo-container">
+              <img
+                src="img/photo_2025-12-03_11-12-19.jpg"
+                alt="ТСР"
+                class="logo-img"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Труд и занятость -->
+        <div class="col">
+          <div
+            class="icon-block work-icon"
+            data-title="Труд и занятость"
+            data-id="work"
+          >
+            <h2 class="label-top">Труд и занятость</h2>
+            <div class="icon-inner">
+              <svg viewBox="0 0 200 200" class="work-svg">
+                <circle
+                  cx="100"
+                  cy="100"
+                  r="90"
+                  fill="#fff3e0"
+                  stroke="#ef6c00"
+                  stroke-width="8"
+                />
+                <rect
+                  x="60"
+                  y="70"
+                  width="80"
+                  height="60"
+                  rx="15"
+                  fill="#ff9800"
+                />
+                <circle
+                  cx="100"
+                  cy="95"
+                  r="20"
+                  fill="#fff"
+                  stroke="#ef6c00"
+                  stroke-width="4"
+                />
+                <path
+                  d="M80 110 L100 130 L120 110"
+                  stroke="#ef6c00"
+                  stroke-width="8"
+                  fill="none"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Документы и юридическая помощь -->
+        <div class="col">
+          <div
+            class="icon-block law-icon"
+            data-title="Документы и юр. помощь"
+            data-id="law"
+          >
+            <h2 class="label-top">Юридическая помощь</h2>
+            <div class="icon-inner">
+              <svg viewBox="0 0 200 200">
+                <circle
+                  cx="100"
+                  cy="100"
+                  r="90"
+                  fill="#f3e5f5"
+                  stroke="#7b1fa2"
+                  stroke-width="8"
+                />
+                <rect
+                  x="70"
+                  y="60"
+                  width="60"
+                  height="80"
+                  rx="8"
+                  fill="#9c27b0"
+                />
+                <rect x="80" y="70" width="40" height="6" fill="#fff" />
+                <rect x="80" y="85" width="40" height="6" fill="#fff" />
+                <rect x="80" y="100" width="30" height="6" fill="#fff" />
+                <path d="M100 130 L85 150 L115 150 Z" fill="#7b1fa2" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Образование -->
+        <div class="col">
+          <div
+            class="icon-block edu-icon"
+            data-title="Образование"
+            data-id="edu"
+          >
+            <h2 class="label-top">Образование</h2>
+            <div class="icon-inner">
+              <svg viewBox="0 0 200 200">
+                <circle
+                  cx="100"
+                  cy="100"
+                  r="90"
+                  fill="#e8f5e8"
+                  stroke="#388e3c"
+                  stroke-width="8"
+                />
+                <polygon
+                  points="100,40 50,90 70,90 70,140 130,140 130,90 150,90"
+                  fill="#4caf50"
+                />
+                <rect x="85" y="100" width="30" height="40" fill="#388e3c" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Спорт -->
+        <div class="col">
+          <div class="icon-block sport-icon" data-title="Спорт" data-id="sport">
+            <h2 class="label-top">Спорт</h2>
+            <div class="icon-inner">
+              <svg viewBox="0 0 200 200">
+                <circle
+                  cx="100"
+                  cy="100"
+                  r="90"
+                  fill="#fff8e1"
+                  stroke="#f57f17"
+                  stroke-width="8"
+                />
+                <circle cx="100" cy="100" r="50" fill="#ffc107" />
+                <path
+                  d="M70 70 Q100 30 130 70"
+                  stroke="#f57f17"
+                  stroke-width="12"
+                  fill="none"
+                />
+                <path
+                  d="M70 130 Q100 170 130 130"
+                  stroke="#f57f17"
+                  stroke-width="12"
+                  fill="none"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Культура и туризм -->
+        <div class="col">
+          <div
+            class="icon-block culture-icon"
+            data-title="Культура и туризм"
+            data-id="culture"
+          >
+            <h2 class="label-top">Культура и туризм</h2>
+            <div class="icon-inner">
+              <svg viewBox="0 0 200 200">
+                <circle
+                  cx="100"
+                  cy="100"
+                  r="90"
+                  fill="#e1f5fe"
+                  stroke="#0277bd"
+                  stroke-width="8"
+                />
+                <path
+                  d="M60 100 Q100 40 140 100 Q100 160 60 100"
+                  fill="#29b6f6"
+                />
+                <circle cx="80" cy="85" r="12" fill="#fff" />
+                <circle cx="120" cy="85" r="12" fill="#fff" />
+                <rect
+                  x="70"
+                  y="120"
+                  width="60"
+                  height="20"
+                  rx="10"
+                  fill="#0277bd"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- Тёмный рубль снизу справа -->
-        <div class="rub-stamp">₽</div>
 
-    <!-- Монетки оставим для красоты (по желанию можно убрать) -->
-    <!-- <div class="coins-row">
-        <div class="coin"></div>
-        <div class="coin"></div>
-        <div class="coin"></div>
-        <div class="coin"></div>
-        <div class="coin"></div>
-    </div> -->
-</div>
+    <!-- Контейнер для контента -->
+    <div id="payoutsList"></div>
 
-    <!-- <p class="subtitle">ЛОГКУ «Центр социальной защиты населения»</p> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Сначала твой полноценный раздел выплат -->
+    <script src="js/socvyplaty.js"></script>
 
-    <!-- ЗДРАВООХРАНЕНИЕ: АПТЕЧКА -->
-<div class="health-icon" id="healthIcon">
-    <h2 class="label-top">Здравоохранение</h2>
-
-    <!-- Логотип + серебристый значок -->
-    <div class="logo-container">
-        <img src="img/photo_2025-11-24_11-06-24.jpg" alt="Логотип здравоохранения" class="logo-img">
-        
-    </div>
-    <!-- <div class="health-coin">+</div> -->
-</div>
-</div>
-
-<!-- Пустой контейнер для списка выплат (будет заполнен JS) -->
-<div id="payoutsList"></div>
-
-<!-- Bootstrap JS + Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Локальный JS -->
-<script src="js/socvyplaty.js"></script>
-<script src="js/health.js"></script>
-
-</body>
+    <!-- Потом универсальный обработчик остальных иконок -->
+    <script src="js/main.js"></script>
+  </body>
 </html>
