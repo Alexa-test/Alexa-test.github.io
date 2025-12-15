@@ -17,6 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/socvyplaty.js"></script>
     <script src="js/health.js"></script>
+    <script src="js/tsr.js" ></script>
     <script src="js/main.js"></script>
   </head>
   <body>
@@ -263,12 +264,40 @@
     <!-- Контейнер для контента -->
     <div id="payoutsList"></div>
 
+    <!-- Кнопка-саммаризатор (плавающая) -->
+<div class="summarizer-btn" id="summarizerBtn" title="Что ещё я могу получить?">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M8.5 4h-1a.5.5 0 0 0-.5.5v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3a.5.5 0 0 0-.5-.5z"/>
+    </svg>
+</div>
+
+<!-- Модальное окно саммаризатора -->
+<div class="summarizer-modal" id="summarizerModal">
+    <div class="summarizer-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4 class="mb-0 text-primary fw-bold">Что ещё вы можете получить?</h4>
+            <button class="btn-close" onclick="closeSummarizer()"></button>
+        </div>
+        <div id="summarizerResult">
+            <!-- Сюда будет подставляться результат -->
+            <p class="text-muted">Отметьте галочками документы, которые у вас уже есть, и нажмите кнопку ниже.</p>
+        </div>
+        <div class="mt-4 text-center">
+            <button class="btn btn-success btn-lg" id="analyzeBtn">
+                Показать доступные меры
+            </button>
+        </div>
+    </div>
+</div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Сначала твой полноценный раздел выплат -->
     <script src="js/socvyplaty.js"></script>
     <script src="js/health.js"></script>
-    <!-- Потом универсальный обработчик остальных иконок -->
+    <script src="js/tsr.js" ></script>
+    <script src="js/summarizer.js" ></script>
     <script src="js/main.js"></script>
   </body>
 </html>
