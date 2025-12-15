@@ -1,3 +1,30 @@
+function getDocId(text) {
+    const normalized = text.trim().toLowerCase()
+        .replace(/\(.*?\)/g, '')  // убираем скобки
+        .replace(/«|»/g, '')       // кавычки
+        .trim();
+
+    // Простое сопоставление по ключевым словам (можно улучшить)
+    if (normalized.includes('паспорт') || normalized.includes('временное удостоверение')) return 'passport';
+    if (normalized.includes('регистрация по месту жительства')) return 'registration';
+    if (normalized.includes('участия в специальной военной операции') || normalized.includes('участии в сво')) return 'svo_participation';
+    if (normalized.includes('выписка из приказа об увольнении')) return 'dismissal_order';
+    if (normalized.includes('реквизиты карты «мир»') || normalized.includes('карты мир')) return 'mir_card';
+    if (normalized.includes('согласие на обработку персональных данных')) return 'consent_personal';
+    if (normalized.includes('справка о ранении') || normalized.includes('увечье')) return 'injury_cert';
+    if (normalized.includes('чек на топливо')) return 'fuel_check';
+    if (normalized.includes('отсутствии центрального отопления')) return 'no_central_heating';
+    if (normalized.includes('балонного газа') || normalized.includes('емкостным сжиженным газом')) return 'gas_heating';
+    if (normalized.includes('свидетельство о браке') || normalized.includes('рождении')) return 'family_proof';
+    if (normalized.includes('фото 3×4')) return 'photo_3x4';
+    if (normalized.includes('справка об обучении')) return 'study_cert';
+    if (normalized.includes('заявление по форме')) return 'statement_form';
+
+    // По умолчанию — просто хэш, но лучше добавить в DOCS_DB
+    return null;
+}
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const mainView = document.getElementById('mainView');
     const payoutsListContainer = document.getElementById('payoutsList');
@@ -413,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <li class="list-group-item d-flex align-items-center py-3">
                     <div class="form-check">
                         <input class="form-check-input checklist-cb" type="checkbox" 
-                               id="${id}" ${checked} data-index="${i}" data-payout="${index}">
+                               id="${id}" ${checked} data-index="${i}" data-payout="${index}" data-doc-id="${getDocId(item)}">
                         <label class="form-check-label" for="${id}">${item}</label>
                     </div>
                 </li>
