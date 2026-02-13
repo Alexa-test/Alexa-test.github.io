@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const id = this.dataset.id;
 
             // ←←← ВАЖНО: полностью игнорируем иконку социальных выплат
-            if (id === 'socvyplaty' || id === 'health' ||  id === 'tsr' || id === 'work' || id === 'law' || id == 'edu' || id == 'sport' || id == 'culture')) {
+            if (id === 'socvyplaty' || id === 'health' ||  id === 'tsr' || id === 'work' || id === 'law' || id == 'edu' || id == 'sport' || id == 'culture') {
                 return; // ничего не делаем — за это отвечает socvyplaty.js и health.js
             }
 
